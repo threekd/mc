@@ -4,7 +4,7 @@ import re
 
 client = docker.from_env()
 
-command = "cfm-predict 'CC(C)NCC(O)COC1=CC=C(CCOCC2CC2)C=C1' 0.001 /trained_models_cfmid4.0/[M+H]+/param_output.log /trained_models_cfmid4.0/[M+H]+/param_config.txt 1"
+command = "cfm-predict 'InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3' 0.001 /trained_models_cfmid4.0/[M+H]+/param_output.log /trained_models_cfmid4.0/[M+H]+/param_config.txt 1"
 container_output = client.containers.run('wishartlab/cfmid:latest', command, remove=True)
 
 decoded_output = container_output.decode('utf-8')
