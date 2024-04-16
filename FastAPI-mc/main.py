@@ -1,6 +1,8 @@
 import docker
 import json
 import re
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 client = docker.from_env()
 
@@ -8,12 +10,12 @@ smiles_or_inchi_or_file = 'InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11
 prob_thresh = 0.001
 param_file = '/trained_models_cfmid4.0/[M+H]+/param_output.log'
 config_file = '/trained_models_cfmid4.0/[M+H]+/param_config.txt'
-annotate_fragments = 1
-output_file_or_dir = 'output.txt'
+annotate_fragments = 0
+output_file_or_dir = 'output'
 apply_postproc = 1
 suppress_exceptions = 0
 
-command = "cfm-predict {smiles_or_inchi_or_file} {prob_thresh} {param_file} {config_file} {annotate_fragments} {output_file_or_dir} {apply_postproc} {suppress_exceptions}"
+command = f"cfm-predict 'CNCCC1=CNC2=CC=CC=C21' 0.001 /trained_models_cfmid4.0/[M+H]+/param_output.log /trained_models_cfmid4.0/[M+H]+/param_config.txt 1"
 container_output = client.containers.run('wishartlab/cfmid:latest', command, remove=True)
 
 decoded_output = container_output.decode('utf-8')
@@ -63,7 +65,22 @@ def decoding_smiles(section):
         json_data.append({"index": int(index), "molecular_weight": float(mol_weight), "SMILES": smiles})
     return json_data
 
-json_output = json.dumps(decoding_energy(first_section), indent=4)
+#json_output = json.dumps(decoding_energy(first_section), indent=4)
 
+"""
 with open('energy_data.json', 'w') as f:
     f.write(json_output)
+"""
+
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:5173"],  # Only allow this origin
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+@app.get("/")
+def read_root():
+    return decoding_energy(first_section)

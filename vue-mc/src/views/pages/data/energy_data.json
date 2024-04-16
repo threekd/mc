@@ -1,480 +1,660 @@
 {
     "energy0": [
         {
-            "m/z": 144.08078,
-            "intensity": 100.0,
-            "other": 12
+            "m/z": 236.16451,
+            "intensity": 15.82,
+            "other": 140
         },
         {
-            "m/z": 175.12297,
-            "intensity": 5.96,
+            "m/z": 308.22202,
+            "intensity": 100.0,
             "other": 0
         }
     ],
     "energy1": [
         {
-            "m/z": 44.04948,
-            "intensity": 15.65,
-            "other": 74
+            "m/z": 45.03349,
+            "intensity": 8.92,
+            "other": 84
         },
         {
-            "m/z": 127.05423,
-            "intensity": 12.87,
-            "other": 33
+            "m/z": 55.05423,
+            "intensity": 51.9,
+            "other": 97
         },
         {
-            "m/z": 144.08078,
+            "m/z": 71.04914,
+            "intensity": 12.51,
+            "other": 137
+        },
+        {
+            "m/z": 72.08078,
+            "intensity": 15.86,
+            "other": 32
+        },
+        {
+            "m/z": 73.06479,
+            "intensity": 19.03,
+            "other": 46
+        },
+        {
+            "m/z": 74.06004,
+            "intensity": 13.99,
+            "other": 7
+        },
+        {
+            "m/z": 98.09643,
+            "intensity": 22.96,
+            "other": 43
+        },
+        {
+            "m/z": 99.08044,
+            "intensity": 9.23,
+            "other": 27
+        },
+        {
+            "m/z": 116.10699,
+            "intensity": 23.88,
+            "other": 82
+        },
+        {
+            "m/z": 134.11756,
+            "intensity": 6.11,
+            "other": 114
+        },
+        {
+            "m/z": 151.07536,
+            "intensity": 5.14,
+            "other": 57
+        },
+        {
+            "m/z": 181.08592,
+            "intensity": 17.19,
+            "other": 29
+        },
+        {
+            "m/z": 205.12231,
+            "intensity": 5.21,
+            "other": 5
+        },
+        {
+            "m/z": 210.11247,
+            "intensity": 6.46,
+            "other": 10
+        },
+        {
+            "m/z": 219.13796,
+            "intensity": 8.41,
+            "other": 26
+        },
+        {
+            "m/z": 222.14886,
+            "intensity": 6.97,
+            "other": 133
+        },
+        {
+            "m/z": 231.13796,
+            "intensity": 9.75,
+            "other": 15
+        },
+        {
+            "m/z": 235.13287,
+            "intensity": 5.65,
+            "other": 30
+        },
+        {
+            "m/z": 236.16451,
+            "intensity": 15.99,
+            "other": 48
+        },
+        {
+            "m/z": 237.14852,
+            "intensity": 5.33,
+            "other": 25
+        },
+        {
+            "m/z": 248.16451,
+            "intensity": 14.02,
+            "other": 4
+        },
+        {
+            "m/z": 249.14852,
+            "intensity": 5.21,
+            "other": 3
+        },
+        {
+            "m/z": 254.17507,
+            "intensity": 8.09,
+            "other": 152
+        },
+        {
+            "m/z": 266.17507,
+            "intensity": 18.14,
+            "other": 2
+        },
+        {
+            "m/z": 290.21146,
+            "intensity": 12.31,
+            "other": 41
+        },
+        {
+            "m/z": 308.22202,
             "intensity": 100.0,
-            "other": 12
+            "other": 0
         }
     ],
     "energy2": [
         {
+            "m/z": 30.03383,
+            "intensity": 15.29,
+            "other": 34
+        },
+        {
+            "m/z": 41.03858,
+            "intensity": 5.08,
+            "other": 35
+        },
+        {
+            "m/z": 43.05423,
+            "intensity": 21.44,
+            "other": 12
+        },
+        {
             "m/z": 44.04948,
-            "intensity": 100.0,
-            "other": 74
+            "intensity": 6.51,
+            "other": 22
         },
         {
-            "m/z": 77.03858,
-            "intensity": 25.17,
-            "other": 116
+            "m/z": 45.03349,
+            "intensity": 6.95,
+            "other": 84
         },
         {
-            "m/z": 79.05423,
-            "intensity": 41.17,
-            "other": 115
+            "m/z": 55.05423,
+            "intensity": 27.15,
+            "other": 150
         },
         {
-            "m/z": 91.05423,
-            "intensity": 66.21,
-            "other": 83
-        },
-        {
-            "m/z": 94.06513,
-            "intensity": 24.5,
-            "other": 16
-        },
-        {
-            "m/z": 103.05423,
-            "intensity": 33.75,
-            "other": 59
-        },
-        {
-            "m/z": 115.05423,
-            "intensity": 61.2,
-            "other": 10
-        },
-        {
-            "m/z": 116.04948,
-            "intensity": 38.48,
-            "other": 87
-        },
-        {
-            "m/z": 117.06988,
-            "intensity": 73.61,
-            "other": 19
-        },
-        {
-            "m/z": 118.06513,
-            "intensity": 64.23,
-            "other": 3
-        },
-        {
-            "m/z": 127.05423,
-            "intensity": 66.29,
+            "m/z": 56.04948,
+            "intensity": 79.64,
             "other": 33
         },
         {
-            "m/z": 128.04948,
-            "intensity": 31.69,
-            "other": 30
+            "m/z": 58.06513,
+            "intensity": 100.0,
+            "other": 39
         },
         {
-            "m/z": 129.06988,
-            "intensity": 27.7,
-            "other": 15
+            "m/z": 60.04439,
+            "intensity": 6.17,
+            "other": 65
         },
         {
-            "m/z": 130.06513,
-            "intensity": 32.94,
+            "m/z": 70.06513,
+            "intensity": 9.24,
+            "other": 31
+        },
+        {
+            "m/z": 71.04914,
+            "intensity": 5.56,
+            "other": 93
+        },
+        {
+            "m/z": 72.08078,
+            "intensity": 77.69,
+            "other": 32
+        },
+        {
+            "m/z": 74.06004,
+            "intensity": 16.33,
             "other": 7
         },
         {
-            "m/z": 144.08078,
-            "intensity": 71.39,
-            "other": 23
+            "m/z": 90.05495,
+            "intensity": 11.06,
+            "other": 111
         },
         {
-            "m/z": 146.09643,
-            "intensity": 38.42,
-            "other": 104
+            "m/z": 91.05423,
+            "intensity": 7.29,
+            "other": 91
+        },
+        {
+            "m/z": 98.09643,
+            "intensity": 5.8,
+            "other": 43
+        },
+        {
+            "m/z": 100.11208,
+            "intensity": 9.33,
+            "other": 44
+        },
+        {
+            "m/z": 105.06988,
+            "intensity": 9.17,
+            "other": 94
+        },
+        {
+            "m/z": 116.10699,
+            "intensity": 7.3,
+            "other": 119
+        },
+        {
+            "m/z": 121.06479,
+            "intensity": 18.57,
+            "other": 72
+        },
+        {
+            "m/z": 123.08044,
+            "intensity": 7.58,
+            "other": 99
+        },
+        {
+            "m/z": 133.06479,
+            "intensity": 4.98,
+            "other": 61
+        },
+        {
+            "m/z": 135.08044,
+            "intensity": 30.15,
+            "other": 55
+        },
+        {
+            "m/z": 137.09609,
+            "intensity": 6.91,
+            "other": 56
+        },
+        {
+            "m/z": 165.12739,
+            "intensity": 9.94,
+            "other": 157
+        },
+        {
+            "m/z": 173.09609,
+            "intensity": 5.48,
+            "other": 16
+        },
+        {
+            "m/z": 231.13796,
+            "intensity": 9.03,
+            "other": 15
+        },
+        {
+            "m/z": 233.15361,
+            "intensity": 4.78,
+            "other": 14
+        },
+        {
+            "m/z": 308.22202,
+            "intensity": 13.85,
+            "other": 160
         }
     ],
     "structure": [
         {
             "index": 0,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C[NH2+]CCc1c[nH]c2ccccc12"
+            "molecular_weight": 308.2220202401,
+            "SMILES": "CC(C)[NH2+]CC(O)COc1ccc(CCOCC2CC2)cc1"
+        },
+        {
+            "index": 2,
+            "molecular_weight": 266.1750700481,
+            "SMILES": "[NH+]#CC(=O)COC1CCC(CCOCC2CC2)CC1"
         },
         {
             "index": 3,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C1=CC=C2[NH2+]C=CC2=C1"
+            "molecular_weight": 249.1485209521,
+            "SMILES": "C=C([OH2+])COC1=CC=C(C=COCC2CC2)CC1"
         },
         {
-            "index": 6,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "[CH2+]#CC1=CN=C2CCCCC12"
+            "index": 4,
+            "molecular_weight": 248.1645053641,
+            "SMILES": "[NH+]#CC#COC1CCC(CCOCC2CC2)CC1"
+        },
+        {
+            "index": 5,
+            "molecular_weight": 205.1223062041,
+            "SMILES": "C[OH+]C1=CC=C(C#COCC2CC2)CC1"
         },
         {
             "index": 7,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "[CH3+]=C1C=NC2=CC=CC=C12"
-        },
-        {
-            "index": 9,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "C=NC1=CC=CCC1CC#[CH2+]"
+            "molecular_weight": 74.0600402961,
+            "SMILES": "CC(O)C=[NH2+]"
         },
         {
             "index": 10,
-            "molecular_weight": 115.0542266441,
-            "SMILES": "[C+]#CCC1=CC=CC=C1"
+            "molecular_weight": 210.1124697921,
+            "SMILES": "[NH+]#CC(=O)COC1=CCC(CCO)CC1"
         },
         {
             "index": 12,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C#CCC1=CC=CC=C1[NH+]=C"
-        },
-        {
-            "index": 13,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "C=C(C#[CH2+])C1CCC=CC1=N"
+            "molecular_weight": 43.0542266441,
+            "SMILES": "CC=[CH3+]"
         },
         {
             "index": 14,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C#CC=C1C=CC=CC1=[NH2+]"
+            "molecular_weight": 233.1536063321,
+            "SMILES": "C#CC[OH+]C1=CC=C(CCOCC2CC2)CC1"
         },
         {
             "index": 15,
-            "molecular_weight": 129.0698767081,
-            "SMILES": "C=C(C#[CH2+])C1=CC=CC=C1"
+            "molecular_weight": 231.1379562681,
+            "SMILES": "C#CC[OH+]C1=CC=C(C=COCC2CC2)CC1"
         },
         {
             "index": 16,
-            "molecular_weight": 94.0651256761,
-            "SMILES": "[NH2+]=C1C=CC=CC1"
+            "molecular_weight": 173.0960914561,
+            "SMILES": "C(#CC1=CC=CCC1)[OH+]C=C1CC1"
         },
         {
-            "index": 18,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "[CH2+]#CC(=C=N)C1C=CCCC1"
+            "index": 20,
+            "molecular_weight": 58.0651256761,
+            "SMILES": "C=C(C)[NH3+]"
         },
         {
-            "index": 19,
-            "molecular_weight": 117.0698767081,
-            "SMILES": "[CH2+]#CCC1=CC=CC=C1"
+            "index": 22,
+            "molecular_weight": 44.0494756121,
+            "SMILES": "C=C[NH3+]"
         },
         {
-            "index": 21,
-            "molecular_weight": 79.0542266441,
-            "SMILES": "C1=CC=[CH2+]C=C1"
-        },
-        {
-            "index": 23,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C#CC(=C=[NH2+])C1C=CC=CC1"
-        },
-        {
-            "index": 24,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "[CH2+]#CC=C=NC1=CCCCC1"
+            "index": 25,
+            "molecular_weight": 237.1485209521,
+            "SMILES": "[OH+]=C=COC1=CCC(CCOCC2CC2)CC1"
         },
         {
             "index": 26,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C#CC#C[NH+]=C1C=CCCC1"
+            "molecular_weight": 219.1379562681,
+            "SMILES": "C#C[OH+]C1=CC=C(CCOCC2CC2)CC1"
         },
         {
             "index": 27,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "C=CC1=NC=C(C#[CH2+])C1CC"
-        },
-        {
-            "index": 28,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C#CC1=NC=C(C#[CH2+])C1CC"
+            "molecular_weight": 99.0804413921,
+            "SMILES": "C=C[OH+]CC1CC1"
         },
         {
             "index": 29,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "C=CCCC1C=NC=C1C#[CH2+]"
+            "molecular_weight": 181.0859206961,
+            "SMILES": "OCCC1=CC=C(OC=C=[OH+])CC1"
         },
         {
             "index": 30,
-            "molecular_weight": 128.0494756121,
-            "SMILES": "[CH+]=C1C=NC2=CC=CC=C12"
+            "molecular_weight": 235.1328708881,
+            "SMILES": "[OH+]=C=COC1=CC=C(CCOCC2CC2)CC1"
         },
         {
             "index": 31,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C=C(C#[CH2+])C1C=CC=CC1=N"
+            "molecular_weight": 70.0651256761,
+            "SMILES": "C=[NH+]C(=C)C"
         },
         {
             "index": 32,
-            "molecular_weight": 128.0494756121,
-            "SMILES": "[C+]#CC=C1C=CC=CC1=N"
+            "molecular_weight": 72.0807757401,
+            "SMILES": "C=C(C)[NH2+]C"
         },
         {
             "index": 33,
-            "molecular_weight": 127.0542266441,
-            "SMILES": "[C+]#CC(=C)C1=CC=CC=C1"
+            "molecular_weight": 56.0494756121,
+            "SMILES": "C#C[NH2+]C"
         },
         {
-            "index": 40,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C=C=CC1C(C#[CH2+])=CN=C1C"
+            "index": 34,
+            "molecular_weight": 30.0338255481,
+            "SMILES": "C=[NH2+]"
+        },
+        {
+            "index": 35,
+            "molecular_weight": 41.0385765801,
+            "SMILES": "[CH2+]#CC"
+        },
+        {
+            "index": 37,
+            "molecular_weight": 56.0494756121,
+            "SMILES": "[CH+]=C(C)N"
+        },
+        {
+            "index": 39,
+            "molecular_weight": 58.0651256761,
+            "SMILES": "C=C[NH2+]C"
         },
         {
             "index": 41,
-            "molecular_weight": 128.0494756121,
-            "SMILES": "C#CC=C1C=NC=C1C#[CH2+]"
-        },
-        {
-            "index": 42,
-            "molecular_weight": 128.0494756121,
-            "SMILES": "[C+]#CC1=CN=C(C)C1C#C"
+            "molecular_weight": 290.2114555561,
+            "SMILES": "C=C(C)[NH+]=C=C=COC1CCC(CCOCC2CC2)CC1"
         },
         {
             "index": 43,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C1C(C#[CH2+])=CN=C1C"
+            "molecular_weight": 98.0964258041,
+            "SMILES": "C=C(C)[NH+]=CCC"
         },
         {
             "index": 44,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "[C+]#CC1=CN=C(C)C1=C"
+            "molecular_weight": 100.1120758681,
+            "SMILES": "C=C(C)[NH2+]CCC"
         },
         {
             "index": 46,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C=C=CC1=NC=C(C#[CH2+])C1C"
-        },
-        {
-            "index": 47,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "[CH2+]#CC1=CN=C(C=C=CC)C1"
+            "molecular_weight": 73.0647913281,
+            "SMILES": "[OH2+]CC1CC1"
         },
         {
             "index": 48,
-            "molecular_weight": 94.0651256761,
-            "SMILES": "[CH2+]#CC1=CNCC1"
+            "molecular_weight": 236.1645053641,
+            "SMILES": "C=C(C)[NH+]=C=C=COC1CCC(CCO)CC1"
         },
         {
-            "index": 49,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C=C=CCC1C=NC=C1C#[CH2+]"
+            "index": 53,
+            "molecular_weight": 121.0647913281,
+            "SMILES": "C=[O+]C1=CC=C(C)C=C1"
         },
         {
-            "index": 50,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=CC1C=NC=C1C#[CH2+]"
-        },
-        {
-            "index": 51,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "C#CC1C=NC=C1C#[CH2+]"
+            "index": 54,
+            "molecular_weight": 123.0804413921,
+            "SMILES": "C[OH+]C1=CC=C(C)C=C1"
         },
         {
             "index": 55,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C#CC1=CC=CC=C1[NH+]=C"
+            "molecular_weight": 135.0804413921,
+            "SMILES": "C#CC1=CC=C([OH+]C)CC1"
+        },
+        {
+            "index": 56,
+            "molecular_weight": 137.0960914561,
+            "SMILES": "C=CC1=CC=C([OH+]C)CC1"
         },
         {
             "index": 57,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "[C+]#CC1C=CC=CC1=N"
-        },
-        {
-            "index": 59,
-            "molecular_weight": 103.0542266441,
-            "SMILES": "[CH2+]#CC1=CC=CC=C1"
+            "molecular_weight": 151.0753560121,
+            "SMILES": "C[OH+]C1=CC=C(C#CO)CC1"
         },
         {
             "index": 61,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C=C(C#[NH+])C1=CC=CC=C1"
+            "molecular_weight": 133.0647913281,
+            "SMILES": "C#CC1=CC=C([OH+]C)C=C1"
         },
         {
-            "index": 64,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C#CC=C1C(=C)N=CC1=[CH3+]"
+            "index": 62,
+            "molecular_weight": 205.1223062041,
+            "SMILES": "C=C=C(C#COC=C1CC1)CCC[OH+]C"
         },
         {
-            "index": 69,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "[CH2+]#CC=NC1=CC=CC=C1"
-        },
-        {
-            "index": 70,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C=C=C1N=CC(=[CH3+])C1=C=C"
-        },
-        {
-            "index": 71,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C=C=C=C=C1CC(=[CH3+])C=N1"
+            "index": 65,
+            "molecular_weight": 60.0443902321,
+            "SMILES": "[NH2+]=CCO"
         },
         {
             "index": 72,
-            "molecular_weight": 130.0651256761,
-            "SMILES": "C=C=C=C=C1CN=CC1=[CH3+]"
+            "molecular_weight": 121.0647913281,
+            "SMILES": "C=C=C1C=CC(=[OH+])CC1"
         },
         {
-            "index": 74,
-            "molecular_weight": 44.0494756121,
-            "SMILES": "C=[NH+]C"
+            "index": 73,
+            "molecular_weight": 123.0804413921,
+            "SMILES": "CC=C1C=CC(=[OH+])CC1"
         },
         {
-            "index": 81,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=C1C=CC=CC1=[NH2+]"
+            "index": 76,
+            "molecular_weight": 151.0753560121,
+            "SMILES": "COC=C=C1C=CC(=[OH+])CC1"
         },
         {
             "index": 82,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "[NH2+]=C=CC1=CC=CC=C1"
+            "molecular_weight": 116.1069904881,
+            "SMILES": "C=C(C)[NH2+]CC(C)O"
         },
         {
-            "index": 83,
+            "index": 84,
+            "molecular_weight": 45.0334912001,
+            "SMILES": "CC=[OH+]"
+        },
+        {
+            "index": 91,
             "molecular_weight": 91.0542266441,
             "SMILES": "[CH2+]C1=CC=CC=C1"
         },
         {
-            "index": 85,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "N=C=[C+]C1=CC=CC=C1"
-        },
-        {
-            "index": 86,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=[NH+]C1=CC=CC=C1"
-        },
-        {
-            "index": 87,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "[C+]#CN=C1C=CC=CC1"
-        },
-        {
-            "index": 88,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=C=C1C=C[NH+]=C1C"
-        },
-        {
-            "index": 90,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=C1C=C[NH+]=C1C=C"
-        },
-        {
             "index": 93,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "C#CC1C=CN=C1[CH+]#C"
+            "molecular_weight": 71.0491412641,
+            "SMILES": "[OH+]=CC1CC1"
         },
         {
             "index": 94,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=CC1=[NH+]C=CC1=C"
-        },
-        {
-            "index": 95,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "C=C1C=CN=C1C#C[CH2+]"
-        },
-        {
-            "index": 96,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=C=CC1=[NH+]C=CC1"
+            "molecular_weight": 105.0698767081,
+            "SMILES": "C#[CH+]C1=CC=CCC1"
         },
         {
             "index": 97,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "C#CC#[CH+]C1=NC=CC1"
+            "molecular_weight": 55.0542266441,
+            "SMILES": "[CH3+]=C1CC1"
         },
         {
             "index": 98,
-            "molecular_weight": 118.0651256761,
-            "SMILES": "C=C=C=CC1C=C[NH+]=C1"
+            "molecular_weight": 121.0647913281,
+            "SMILES": "[OH2+]C#CC1=CC=CCC1"
         },
         {
             "index": 99,
-            "molecular_weight": 116.0494756121,
-            "SMILES": "[CH2+]#CC#CC1C=CN=C1"
+            "molecular_weight": 123.0804413921,
+            "SMILES": "[OH2+]C=CC1=CC=CCC1"
         },
         {
-            "index": 102,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=NC1=CCCCC1CC#C[NH+]=C"
+            "index": 100,
+            "molecular_weight": 135.0804413921,
+            "SMILES": "C[OH+]C#CC1=CC=CCC1"
         },
         {
-            "index": 104,
-            "molecular_weight": 146.0964258041,
-            "SMILES": "C=[NH+]C#CCC1C=CC=CC1"
+            "index": 101,
+            "molecular_weight": 137.0960914561,
+            "SMILES": "C[OH+]C=CC1=CC=CCC1"
         },
         {
-            "index": 105,
-            "molecular_weight": 144.0807757401,
-            "SMILES": "C=[NH+]C#CCC1=CC=CC=C1"
+            "index": 106,
+            "molecular_weight": 133.0647913281,
+            "SMILES": "C[OH+]C#CC1=CC=CC=C1"
         },
         {
-            "index": 107,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC(=C)C1CCCCC1=N"
+            "index": 111,
+            "molecular_weight": 90.0549549161,
+            "SMILES": "[NH2+]=CC(O)CO"
         },
         {
-            "index": 110,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC(=C=N)C1CCCCC1"
+            "index": 114,
+            "molecular_weight": 134.1175551721,
+            "SMILES": "CC(C)[NH2+]CC(O)CO"
         },
         {
-            "index": 115,
-            "molecular_weight": 79.0542266441,
-            "SMILES": "CC=C=C=C=[CH3+]"
+            "index": 119,
+            "molecular_weight": 116.1069904881,
+            "SMILES": "C=C(C)[NH2+]CCCO"
         },
         {
-            "index": 116,
-            "molecular_weight": 77.0385765801,
-            "SMILES": "C=CC#CC#[CH2+]"
-        },
-        {
-            "index": 121,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC=C=NC1CCCCC1"
+            "index": 126,
+            "molecular_weight": 99.0804413921,
+            "SMILES": "C#C[OH+]CC(C)C"
         },
         {
             "index": 127,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=C(C)C1CCC"
-        },
-        {
-            "index": 128,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=C(CC)C1CC"
-        },
-        {
-            "index": 132,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=C(CCC)C1C"
+            "molecular_weight": 99.0804413921,
+            "SMILES": "C#C[OH+]CCCC"
         },
         {
             "index": 133,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=C(CCCC)C1"
+            "molecular_weight": 222.1488553001,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1=CCC(C)CC1"
         },
         {
-            "index": 134,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=CC1CCCC"
+            "index": 136,
+            "molecular_weight": 73.0647913281,
+            "SMILES": "CCCC=[OH+]"
+        },
+        {
+            "index": 137,
+            "molecular_weight": 71.0491412641,
+            "SMILES": "CCC=C=[OH+]"
+        },
+        {
+            "index": 138,
+            "molecular_weight": 73.0647913281,
+            "SMILES": "CC(C)C=[OH+]"
+        },
+        {
+            "index": 139,
+            "molecular_weight": 71.0491412641,
+            "SMILES": "CC(C)=C=[OH+]"
+        },
+        {
+            "index": 140,
+            "molecular_weight": 236.1645053641,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1=CCC(CC)CC1"
+        },
+        {
+            "index": 149,
+            "molecular_weight": 55.0542266441,
+            "SMILES": "[CH+]=C(C)C"
+        },
+        {
+            "index": 150,
+            "molecular_weight": 55.0542266441,
+            "SMILES": "[CH2+]#CCC"
+        },
+        {
+            "index": 152,
+            "molecular_weight": 254.1750700481,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1CCC(CCO)CC1"
+        },
+        {
+            "index": 154,
+            "molecular_weight": 266.1750700481,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1=CCC(CCOC)CC1"
+        },
+        {
+            "index": 156,
+            "molecular_weight": 308.2220202401,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC=CCC(CC)CCOCC1CC1"
+        },
+        {
+            "index": 157,
+            "molecular_weight": 165.1273915841,
+            "SMILES": "C#CC(=CC[OH+]CC1CC1)CC"
+        },
+        {
+            "index": 160,
+            "molecular_weight": 308.2220202401,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC(C)=CCC(C)CCOCC1CC1"
+        },
+        {
+            "index": 161,
+            "molecular_weight": 308.2220202401,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC(=CCCCCOCC1CC1)CC"
+        },
+        {
+            "index": 162,
+            "molecular_weight": 308.2220202401,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1=CCC(CCOCCCC)CC1"
+        },
+        {
+            "index": 164,
+            "molecular_weight": 308.2220202401,
+            "SMILES": "C=C(C)[NH+]=C=C(O)COC1=CCC(CCOCC(C)C)CC1"
         }
     ]
 }

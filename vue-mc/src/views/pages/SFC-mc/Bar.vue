@@ -104,4 +104,5 @@ watch(
             </div>
         </div>
     </div>
+    <pre>{{ msg }}</pre> 
 </template>

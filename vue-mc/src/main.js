@@ -221,4 +221,9 @@ app.component('TreeTable', TreeTable);
 app.component('TriStateCheckbox', TriStateCheckbox);
 app.component('VirtualScroller', VirtualScroller);
 
+import axios from 'axios'
+axios.defaults.withCredentials = true
+axios.defaults.baseURL = 'http://localhost:8001'
+
+
 app.mount('#app');

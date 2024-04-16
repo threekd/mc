@@ -34,6 +34,10 @@ const AdductType_dropdownItem = ref(null);
                         <label for="AdductType">Adduct Type</label>
                         <Dropdown id="AdductType" v-model="AdductType_dropdownItem" :options="AdductType_dropdownItems" optionLabel="name" placeholder="Select One"></Dropdown>
                     </div>
+                    <div class="field col-12 md:col-3">
+                        <label for="Submit">run</label>
+                        <Button label="Submit" class="mr-2 mb-2"></Button>
+                    </div>
                 </div>
             </div>
         </div>
