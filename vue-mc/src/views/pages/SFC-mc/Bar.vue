@@ -4,9 +4,23 @@ import { useLayout } from '@/layout/composables/layout';
 
 
 const props = defineProps({
-  energyData: Object,
-  a: Number
-})
+    energyData: {
+        type: Object,
+        default: () => ({ /* 默认对象 */ })
+    },
+    Bar_percentage: {
+        type: Number,
+        default: 0.5
+    },
+    Cateory_percentage: {
+        type: Number,
+        default: 1
+    },
+    Energy_level: {
+        type: Text,
+        default: "Energy"
+    }
+});
 
 const { layoutConfig } = useLayout();
 let documentStyle = getComputedStyle(document.documentElement);
@@ -38,8 +52,8 @@ const setChart = () => {
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
                 data: intensityValues,
-                barPercentage: props.a, // 50%的理论宽度
-                categoryPercentage: 0.8 // 80%的类别宽度
+                barPercentage: props.Bar_percentage, // 50%的理论宽度
+                categoryPercentage: props.Cateory_percentage // 80%的类别宽度
             }
         ]
     };
@@ -99,7 +113,7 @@ watch(
     <div class="grid p-fluid">
         <div class="col-12 xl:col-12">
             <div class="card">
-                <h5>Bar Chart</h5>
+                <h5>{{ props.Energy_level }}</h5>
                 <Chart type="bar" :data="barData" :options="barOptions"></Chart>
             </div>
         </div>

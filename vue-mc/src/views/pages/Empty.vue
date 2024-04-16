@@ -5,6 +5,9 @@ import Energy_data from './data/energy_data.json'
 import axios from 'axios'
 import { ref } from 'vue'
 
+//childs
+const Compound_string = ref('')
+
 const msg = ref(null)
 const showBar = ref(false) 
 
@@ -16,25 +19,24 @@ const toggleBarVisibility = () => {
 
 const sendMessage = () => {
   axios.post("/update", { 
-    smiles: "InChI=1S/C8H10N4O2/c1-10-4-9-6-5(10)7(13)12(3)8(14)11(6)2/h4H,1-3H3"
-    // 如果模型需要其他字段，请确保它们在这里发送
+    smiles: Compound_string.value
   })
   .then((res) => {
-    msg.value = res.data.result // Corrected this line
+    msg.value = res.data.result 
     console.log(res.data);
   })
   .catch((error) => {
-    console.error(error.response.data);  // 打印错误信息，它会包括验证错误内容
+    console.error(error.response.data);  
   });
 };
-
+/*
 const getMessage = () => {
   axios.get("/")
     .then((res) => {
-      msg.value = res.data; // 更新响应式引用的值
+      msg.value = res.data; 
     });
 };
-
+*/
 </script>
 
 <template>
@@ -42,9 +44,8 @@ const getMessage = () => {
   <div class="field col-12 md:col-3">
       <Button label="Submit" class="mr-2 mb-2" @click="toggleBarVisibility"></Button>
   </div>
-  <Form />
-  <Bar v-if="showBar" :energyData="msg.energy1" :a="1"/>
-  <Bar v-if="showBar && msg" :energyData="msg.energy2" :a="1"/>
-
-
+  <Form v-model="Compound_string"/>
+  <Bar v-if="showBar" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="showBar" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="showBar" :energyData="msg.energy2" :Energy_level="'High Energy'" />
 </template>
