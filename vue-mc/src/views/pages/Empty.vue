@@ -12,11 +12,14 @@ const Compound_string = ref('')
 const msg = ref(null)
 const isSubmit = ref(false)
 
-const toggleBarVisibility = () => {
-  isSubmit.value = true
-  sendMessage()
-}
 
+import { watch } from 'vue'
+
+watch(isSubmit, (newValue) => {
+  if (newValue) {
+    sendMessage();
+  }
+});
 
 const sendMessage = () => {
   axios.post("/update", {
@@ -41,22 +44,12 @@ const getMessage = () => {
 </script>
 
 <template>
-  <!-- for docker
-  <h1>Here is MC</h1>
-  <div class="field col-12 md:col-3">
-      <Button label="Submit" class="mr-2 mb-2" @click="toggleBarVisibility"></Button>
-  </div>
-  <Form v-model="Compound_string"/>
-  <Bar v-if="isSubmit" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
-  <Bar v-if="isSubmit" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
-  <Bar v-if="isSubmit" :energyData="msg.energy2" :Energy_level="'High Energy'" />
--->
-  <h1>Here is CFM-ID</h1>
 
+  <h1>Here is MC</h1>
   <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
   <ProgressBar v-if="isSubmit" />
-  <Bar v-if="isSubmit" :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
-  <Bar v-if="isSubmit" :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
-  <Bar v-if="isSubmit" :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
-  <List_results />
+  <Bar v-if="isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
+  <List_results v-if="isSubmit && msg && msg.structure" :energyData="msg.structure" />
 </template>
