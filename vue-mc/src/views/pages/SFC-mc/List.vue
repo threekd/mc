@@ -1,9 +1,12 @@
 <script setup>
-import { ref, onMounted } from 'vue';
-import { ProductService } from '@/service/ProductService';
+import { ref } from 'vue';
 import Energy_data_json from '../data/energy_data.json'
 
-const dataviewValue = ref(null);
+const dataviewValue = ref(Energy_data_json)
+
+const molecular_weight = dataviewValue.map(data => data["molecular_weight"].toFixed(2));
+const SMILES = dataviewValue.map(data => data.SMILES);
+
 const layout = ref('grid');
 const sortKey = ref(null);
 const sortOrder = ref(null);
@@ -12,12 +15,6 @@ const sortOptions = ref([
     { label: 'Price High to Low', value: '!price' },
     { label: 'Price Low to High', value: 'price' }
 ]);
-
-const productService = new ProductService();
-
-onMounted(() => {
-    productService.getProductsSmall().then((data) => (dataviewValue.value = data));
-});
 
 const onSortChange = (event) => {
     const value = event.value.value;
@@ -63,7 +60,7 @@ const getSeverity = (product) => {
                                 <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Price" @change="onSortChange($event)" />
                             </div>
                             <div class="col-6 text-right">
-
+                                <!--some button-->
                             </div>
                         </div>
                     </template>
@@ -82,7 +79,7 @@ const getSeverity = (product) => {
                                         <div class="flex flex-row justify-content-between align-items-start gap-2">
                                             <div>
                                                 <span class="font-medium text-secondary text-sm">{{ item.category }}</span>
-                                                <div class="text-lg font-medium text-900 mt-1">{{ item.name }}</div>
+                                                <div class="text-lg font-medium text-900 mt-1">{{ item.molecular_weight }}</div>
                                             </div>
                                             <div class="surface-100 p-1" style="border-radius: 30px">
                                                 <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2" style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
@@ -92,7 +89,7 @@ const getSeverity = (product) => {
                                             </div>
                                         </div>
                                         <div class="flex flex-column gap-4 mt-4">
-                                            <span class="text-2xl font-semibold text-900">${{ item.price }}</span>
+                                            <span class="text-2xl font-semibold text-900">${{ item.SMILES }}</span>
                                             <div class="flex gap-2">
                                                 <Button icon="pi pi-shopping-cart" label="Buy Now" :disabled="item.inventoryStatus === 'OUTOFSTOCK'" class="flex-auto white-space-nowrap"></Button>
                                                 <Button icon="pi pi-heart" outlined></Button>
