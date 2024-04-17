@@ -2,7 +2,7 @@
 import Bar from './SFC-mc/Bar.vue'
 import Form from './SFC-mc/Form.vue'
 import ProgressBar from './SFC-mc/ProgressBar.vue'
-import List_results from './SFC-mc/List_results.vue'
+import List_results from './SFC-mc/List.vue'
 import Energy_data from './data/energy_data.json'
 import axios from 'axios'
 import { ref } from 'vue'

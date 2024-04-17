@@ -41,8 +41,10 @@ const submitCompoundString = () => {
                             <InputText v-model="Compound_string" id="Parent_Compound_Structure" type="text"
                                 placeholder="Enter an InChI or SMILES string" />
                             <InputGroupAddon @click="clearCompoundString">
-                                <i class="pi pi-eraser"></i>
-                            </InputGroupAddon>
+                                <button @click="clearCompoundString" class="p-link layout-topbar-button">
+                                    <i class="pi pi-eraser"></i>
+                                </button>  
+                            </InputGroupAddon>                          
                         </InputGroup>
                     </div>
                 </div>
