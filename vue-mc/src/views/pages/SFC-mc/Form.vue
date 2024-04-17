@@ -3,6 +3,10 @@ import { ref } from 'vue';
 
 const Compound_string = defineModel()
 
+const SpectraType_dropdownItems = ref([
+    { name: 'ESI', code: 'ESI' },
+]);
+
 const IonMode_dropdownItems = ref([
     { name: 'Positive', code: 'Positive' },
     { name: 'Nagetive', code: 'Nagetive' },
@@ -23,19 +27,42 @@ const AdductType_dropdownItem = ref(null);
             <div class="card">
                 <h4>Spectra Prediction</h4>
                 <div class="p-fluid formgrid grid">
-                    <div class="field col-12 md:col-10">
+                    <div class="field col-12 md:col-12">
                         <label for="Parent_Compound_Structure">Parent Compound Structure</label>
-                        <InputText v-model="Compound_string" id="Parent_Compound_Structure" type="text" placeholder="Enter an InChI or SMILES string" />
+                        <InputGroup>
+                            <InputText v-model="Compound_string" id="Parent_Compound_Structure" type="text"
+                                placeholder="Enter an InChI or SMILES string" />
+                            <InputGroupAddon>
+                                <i class="pi pi-eraser"></i>
+                            </InputGroupAddon>
+                        </InputGroup>
                     </div>
-                    <div class="field col-12 md:col-2">
-                        <label for="AdductType">Adduct Type</label>
-                        <Dropdown id="AdductType" v-model="AdductType_dropdownItem" :options="AdductType_dropdownItems" optionLabel="name" placeholder="Select One"></Dropdown>
+                </div>
+                <div class="card p-fluid">
+                    <!--    <h5>Vertical Grid</h5>   -->
+                    <div class="formgrid grid">
+                        <div class="field col-12 md:col-2">
+                            <label for="SpectraType">Adduct Type</label>
+                            <Dropdown id="SpectraType" v-model="SpectraType_dropdownItem"
+                                :options="SpectraType_dropdownItems" optionLabel="name" placeholder="ESI"></Dropdown>
+                        </div>
+                        <div class="field col-12 md:col-2">
+                            <label for="AdductType">Adduct Type</label>
+                            <Dropdown id="AdductType" v-model="AdductType_dropdownItem"
+                                :options="AdductType_dropdownItems" optionLabel="name" placeholder="[M+H]+"></Dropdown>
+                        </div>
+                        <div class="field col-12 md:col-2">
+                            <label for="IonMode">Ion Mode</label>
+                            <Dropdown id="IonMode" v-model="IonMode_dropdownItem" :options="IonMode_dropdownItems"
+                                optionLabel="name" placeholder="Positive"></Dropdown>
+                        </div>
                     </div>
-                    <div class="field col-12 md:col-2">
-                        <Button label="Reset" class="mr-2 mb-2"></Button>
-                    </div>
-                    <div class="field col-12 md:col-2">
-                        <Button label="Submit" class="mr-2 mb-2"></Button>
+                </div>
+                <div class="card">
+                    <div class="p-fluid formgrid grid">
+                        <div class="field col-12 md:col-2">
+                            <Button label="Submit" class="mr-2 mb-2"></Button>
+                        </div>
                     </div>
                 </div>
             </div>

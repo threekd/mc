@@ -52,8 +52,8 @@ const setChart = () => {
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
                 data: intensityValues,
-                barPercentage: props.Bar_percentage, // 50%的理论宽度
-                categoryPercentage: props.Cateory_percentage // 80%的类别宽度
+                barPercentage: props.Bar_percentage,
+                categoryPercentage: props.Cateory_percentage
             }
         ]
     };

@@ -9,25 +9,25 @@ import { ref } from 'vue'
 const Compound_string = ref('')
 
 const msg = ref(null)
-const showBar = ref(false) 
+const showBar = ref(false)
 
-const toggleBarVisibility = () => { 
+const toggleBarVisibility = () => {
   showBar.value = true
   sendMessage()
 }
 
 
 const sendMessage = () => {
-  axios.post("/update", { 
+  axios.post("/update", {
     smiles: Compound_string.value
   })
-  .then((res) => {
-    msg.value = res.data.result 
-    console.log(res.data);
-  })
-  .catch((error) => {
-    console.error(error.response.data);  
-  });
+    .then((res) => {
+      msg.value = res.data.result
+      console.log(res.data);
+    })
+    .catch((error) => {
+      console.error(error.response.data);
+    });
 };
 /*
 const getMessage = () => {
@@ -40,6 +40,7 @@ const getMessage = () => {
 </script>
 
 <template>
+  <!-- for docker
   <h1>Here is MC</h1>
   <div class="field col-12 md:col-3">
       <Button label="Submit" class="mr-2 mb-2" @click="toggleBarVisibility"></Button>
@@ -48,4 +49,12 @@ const getMessage = () => {
   <Bar v-if="showBar" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="showBar" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="showBar" :energyData="msg.energy2" :Energy_level="'High Energy'" />
+-->
+  <h1>Here is CFM-ID</h1>
+
+  <Form v-model="Compound_string" />
+  <Bar :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
+  <Bar :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
+  <Bar :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
+
 </template>
