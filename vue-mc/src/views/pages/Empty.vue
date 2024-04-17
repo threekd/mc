@@ -9,10 +9,10 @@ import { ref } from 'vue'
 const Compound_string = ref('')
 
 const msg = ref(null)
-const showBar = ref(false)
+const isSubmit = ref(false)
 
 const toggleBarVisibility = () => {
-  showBar.value = true
+  isSubmit.value = true
   sendMessage()
 }
 
@@ -46,15 +46,15 @@ const getMessage = () => {
       <Button label="Submit" class="mr-2 mb-2" @click="toggleBarVisibility"></Button>
   </div>
   <Form v-model="Compound_string"/>
-  <Bar v-if="showBar" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
-  <Bar v-if="showBar" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
-  <Bar v-if="showBar" :energyData="msg.energy2" :Energy_level="'High Energy'" />
+  <Bar v-if="isSubmit" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="isSubmit" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="isSubmit" :energyData="msg.energy2" :Energy_level="'High Energy'" />
 -->
   <h1>Here is CFM-ID</h1>
 
-  <Form v-model="Compound_string" />
-  <Bar :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
-  <Bar :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
-  <Bar :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
+  <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
 
 </template>

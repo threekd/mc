@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from 'vue';
 
-const Compound_string = defineModel()
+const Compound_string = defineModel('Compound_string',{ default: '' })
+const isSubmit = defineModel('isSubmit',{ default: false })
 
 const SpectraType_dropdownItems = ref([
     { name: 'ESI', code: 'ESI' },
@@ -19,6 +20,13 @@ const AdductType_dropdownItems = ref([
 
 const IonMode_dropdownItem = ref(null);
 const AdductType_dropdownItem = ref(null);
+
+const clearCompoundString = () => {
+    Compound_string.value = ''; // Clear the value
+}
+const submitCompoundString = () => {
+    isSubmit.value = true; // Clear the value
+}
 </script>
 
 <template>
@@ -32,7 +40,7 @@ const AdductType_dropdownItem = ref(null);
                         <InputGroup>
                             <InputText v-model="Compound_string" id="Parent_Compound_Structure" type="text"
                                 placeholder="Enter an InChI or SMILES string" />
-                            <InputGroupAddon>
+                            <InputGroupAddon @click="clearCompoundString">
                                 <i class="pi pi-eraser"></i>
                             </InputGroupAddon>
                         </InputGroup>
@@ -61,7 +69,7 @@ const AdductType_dropdownItem = ref(null);
                 <div class="card">
                     <div class="p-fluid formgrid grid">
                         <div class="field col-12 md:col-2">
-                            <Button label="Submit" class="mr-2 mb-2"></Button>
+                            <Button @click="submitCompoundString" label="Submit" v-model="isSubmit" class="mr-2 mb-2"></Button>
                         </div>
                     </div>
                 </div>
