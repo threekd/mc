@@ -1,5 +1,6 @@
 <script setup>
 import { ref, watch } from 'vue';
+import { createApp, h } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 import RDKit from './RDKit-Vue/ExampleSVG.vue'
 
@@ -23,11 +24,104 @@ const props = defineProps({
     }
 });
 
-const showToolTip = ref(false);
-const toolTipPosition = ref({x: 0, y: 0});
-const scrollX = window.scrollX;
-const scrollY = window.scrollY;
-const molecules = ref('CNCCC1=CNC2=CC=CC=C21')
+const getOrCreateTooltip = (chart) => {
+  let tooltipEl = chart.canvas.parentNode.querySelector('div');
+
+  if (!tooltipEl) {
+    tooltipEl = document.createElement('div');
+    tooltipEl.style.background = 'rgba(0, 0, 0, 0.7)';
+    tooltipEl.style.borderRadius = '3px';
+    tooltipEl.style.color = 'white';
+    tooltipEl.style.opacity = 1;
+    tooltipEl.style.pointerEvents = 'none';
+    tooltipEl.style.position = 'absolute';
+    tooltipEl.style.transform = 'translate(-50%, 0)';
+    tooltipEl.style.transition = 'all .1s ease';
+
+    const table = document.createElement('table');
+    table.style.margin = '0px';
+
+    tooltipEl.appendChild(table);
+    chart.canvas.parentNode.appendChild(tooltipEl);
+  }
+
+  return tooltipEl;
+};
+
+const externalTooltipHandler = (context) => {
+    const { chart, tooltip } = context;
+  const tooltipEl = getOrCreateTooltip(chart);
+
+  // Hide if no tooltip
+  if (tooltip.opacity === 0) {
+    tooltipEl.style.opacity = 0;
+    return;
+  }
+
+  let tooltipMolecule = 'CNCCC1=CNC2=CC=CC=C21'; // 通过 tooltip 获取分子数据
+
+  /*
+  if (tooltip.dataPoints && tooltip.dataPoints.length) {
+    tooltipMolecule = tooltip.dataPoints[0].label; // 从这里设置分子数据！
+  }
+  */
+  const RDKitApp = createApp({
+    render() {
+      // 确保你在这里传递正确的分子字符串
+      return h(RDKit, { molecules: tooltipMolecule }); 
+    },
+  });
+
+  // 创建包装容器来挂载我们的 RDKit 组件
+  const rdkitContainer = document.createElement('div');
+  
+  // 将 RDKit Vue 应用挂载到创建的 div 容器上
+  RDKitApp.mount(rdkitContainer);
+
+  // Set Text
+  if (tooltip.body) {
+    const titleLines = tooltip.title || [];
+    const bodyLines = tooltip.body.map(b => b.lines);
+
+    const tableHead = document.createElement('thead');
+
+    titleLines.forEach(title => {
+      // ...
+    });
+
+    const tableBody = document.createElement('tbody');
+    bodyLines.forEach((body, i) => {
+      // ...
+    });
+
+    const rdkitWrapperTr = document.createElement('tr');
+    const rdkitWrapperTd = document.createElement('td');
+    rdkitWrapperTd.colSpan = '2'; // 让 RDKit 组件占据整个宽度
+    rdkitWrapperTd.appendChild(rdkitContainer); // 把 RDKit 组件附加到单元格
+    rdkitWrapperTr.appendChild(rdkitWrapperTd);
+    tableBody.appendChild(rdkitWrapperTr); // 将 RDKit 的行添加到表格主体
+
+    const tableRoot = tooltipEl.querySelector('table');
+
+    // Remove old children
+    while (tableRoot.firstChild) {
+      tableRoot.firstChild.remove();
+    }
+
+    // Add new children
+    tableRoot.appendChild(tableHead);
+    tableRoot.appendChild(tableBody);
+  }
+
+  const {offsetLeft: positionX, offsetTop: positionY} = chart.canvas;
+
+  // Display, position, and set styles for font
+  tooltipEl.style.opacity = 1;
+  tooltipEl.style.left = positionX + tooltip.caretX + 'px';
+  tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+  tooltipEl.style.font = tooltip.options.bodyFont.string;
+  tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
+};
 
 
 const { layoutConfig } = useLayout();
@@ -70,21 +164,8 @@ const setChart = () => {
         plugins: {
             tooltip: {
                 enabled: false, // 正确地禁用默认工具提示
-                external: function(context) {
-                    // 使用context.tooltip而不是tooltipModel访问工具提示模型
-                    const tooltip = context.tooltip;
-                    if (tooltip.opacity === 0) {
-                        showToolTip.value = false;
-                        return;
-                    }
-                    showToolTip.value = true;
-                    // 使用context.chart.canvas而不是this._chart.canvas
-                    const position = context.chart.canvas.getBoundingClientRect();
-                    toolTipPosition.value = {
-                        x: position.left + scrollX,
-                        y: position.top + scrollY
-                    };
-                }
+                external: externalTooltipHandler,
+                position: 'nearest'
             },
             legend: {
                 labels: {
@@ -136,9 +217,6 @@ watch(
 </script>
 
 <template>
-    <div v-show="showToolTip" :style="{position: 'absolute', left: toolTipPosition.x + 'px', top: toolTipPosition.y + 'px'}">
-        <RDKit :molecules="molecules"/>
-    </div>
     <div class="grid p-fluid">
         <div class="col-12 xl:col-12">
             <div class="card">
