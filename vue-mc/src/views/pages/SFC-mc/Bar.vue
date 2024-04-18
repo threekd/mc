@@ -1,6 +1,7 @@
 <script setup>
 import { ref, watch } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
+import RDKit from './RDKit-Vue/ExampleSVG.vue'
 
 
 const props = defineProps({
@@ -21,6 +22,13 @@ const props = defineProps({
         default: "Energy"
     }
 });
+
+const showToolTip = ref(false);
+const toolTipPosition = ref({x: 0, y: 0});
+const scrollX = window.scrollX;
+const scrollY = window.scrollY;
+const molecules = ref('CNCCC1=CNC2=CC=CC=C21')
+
 
 const { layoutConfig } = useLayout();
 let documentStyle = getComputedStyle(document.documentElement);
@@ -60,6 +68,24 @@ const setChart = () => {
     barOptions.value = {
 
         plugins: {
+            tooltip: {
+                enabled: false, // 正确地禁用默认工具提示
+                external: function(context) {
+                    // 使用context.tooltip而不是tooltipModel访问工具提示模型
+                    const tooltip = context.tooltip;
+                    if (tooltip.opacity === 0) {
+                        showToolTip.value = false;
+                        return;
+                    }
+                    showToolTip.value = true;
+                    // 使用context.chart.canvas而不是this._chart.canvas
+                    const position = context.chart.canvas.getBoundingClientRect();
+                    toolTipPosition.value = {
+                        x: position.left + scrollX,
+                        y: position.top + scrollY
+                    };
+                }
+            },
             legend: {
                 labels: {
                     fontColor: textColor
@@ -110,6 +136,9 @@ watch(
 </script>
 
 <template>
+    <div v-show="showToolTip" :style="{position: 'absolute', left: toolTipPosition.x + 'px', top: toolTipPosition.y + 'px'}">
+        <RDKit :molecules="molecules"/>
+    </div>
     <div class="grid p-fluid">
         <div class="col-12 xl:col-12">
             <div class="card">
