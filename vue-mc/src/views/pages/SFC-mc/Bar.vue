@@ -29,7 +29,7 @@ const getOrCreateTooltip = (chart) => {
 
   if (!tooltipEl) {
     tooltipEl = document.createElement('div');
-    tooltipEl.style.background = 'rgba(0, 0, 0, 0.7)';
+    tooltipEl.style.background = 'rgba(0, 0, 0, 0)';
     tooltipEl.style.borderRadius = '3px';
     tooltipEl.style.color = 'white';
     tooltipEl.style.opacity = 1;
@@ -116,9 +116,12 @@ const externalTooltipHandler = (context) => {
   const {offsetLeft: positionX, offsetTop: positionY} = chart.canvas;
 
   // Display, position, and set styles for font
+
+  const topoffset = -100
+  const leftoffset = 180
   tooltipEl.style.opacity = 1;
-  tooltipEl.style.left = positionX + tooltip.caretX + 'px';
-  tooltipEl.style.top = positionY + tooltip.caretY + 'px';
+  tooltipEl.style.left = leftoffset + positionX + tooltip.caretX + 'px';
+  tooltipEl.style.top = topoffset + positionY + tooltip.caretY + 'px';
   tooltipEl.style.font = tooltip.options.bodyFont.string;
   tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
