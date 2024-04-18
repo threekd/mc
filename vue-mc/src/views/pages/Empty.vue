@@ -44,7 +44,7 @@ const getMessage = () => {
 </script>
 
 <template>
-
+<!-- for docker version
   <h1>Here is MC</h1>
   <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
   <ProgressBar v-if="isSubmit" />
@@ -52,4 +52,14 @@ const getMessage = () => {
   <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
   <List_results v-if="isSubmit && msg && msg.structure" :energyData="msg.structure" />
+-->
+  <h1>Here is CFM-ID</h1>
+
+  <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
+  <ProgressBar v-if="isSubmit" />
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="isSubmit" :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
+  <List_results v-if="isSubmit" :energyData="Energy_data.structure" />
+
 </template>
