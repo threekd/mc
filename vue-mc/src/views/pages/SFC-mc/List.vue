@@ -3,7 +3,14 @@ import { ref } from 'vue'
 import RDKit from './RDKit-Vue/ExampleSVG.vue'
 import Energy_data_json from '../data/energy_data.json'
 
-const dataviewValue = ref(Energy_data_json.structure)
+const props = defineProps({
+    energyData: {
+        type: Object,
+        default: () => ({ /* 默认对象 */ })
+    }
+});
+
+const dataviewValue = ref(props.energyData)
 const molecules = ref('')
 
 const layout = ref('grid');
