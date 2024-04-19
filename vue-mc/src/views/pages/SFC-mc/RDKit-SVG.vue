@@ -24,7 +24,7 @@ const molecules_list = [props.molecules];
       <MoleculeStructure
         :id="`structure-example-svg-${idx}`"
         :structure="mol"
-        :width="350"
+        :width="300"
         :height="300"
         svg-mode
       ></MoleculeStructure>

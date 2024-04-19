@@ -43,17 +43,43 @@
                         "data": {
                             "id": "d0o6hyobibk0",
                             "created": 1713537923240,
-                            "text": "Prime Vue主题提供响应式网页框架"
+                            "text": "Prime Vue主题提供网页框架"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "d0o7sh845j40",
+                                    "created": 1713541568371,
+                                    "text": "响应式设计"
+                                },
+                                "children": []
+                            }
+                        ]
                     },
                     {
                         "data": {
                             "id": "d0o6lsv3c800",
                             "created": 1713538224046,
-                            "text": "Chart.js提供柱形图渲染，支持自定义tooltips"
+                            "text": "Chart.js提供柱形图渲染"
                         },
-                        "children": []
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "d0o7syn8hio0",
+                                    "created": 1713541606291,
+                                    "text": "自动伸缩坐标轴"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "d0o7t2v5r740",
+                                    "created": 1713541615477,
+                                    "text": "tooltips显示图片"
+                                },
+                                "children": []
+                            }
+                        ]
                     },
                     {
                         "data": {

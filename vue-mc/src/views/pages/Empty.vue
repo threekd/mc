@@ -8,11 +8,11 @@ import axios from 'axios'
 import { ref } from 'vue'
 
 //childs
-const Compound_string = ref('')
-const msg = ref(null)
+const smiles_or_inchi_or_file = ref('')
+const AdductType_dropdownItem = ref('')
 const isSubmit = ref(false)
+const msg = ref(null)
 
-/*
 import { watch } from 'vue'
 
 watch(isSubmit, (newValue) => {
@@ -22,8 +22,9 @@ watch(isSubmit, (newValue) => {
 });
 
 const sendMessage = () => {
-  axios.post("/update", {
-    smiles: Compound_string.value
+  axios.post("/predict", {
+    smiles_or_inchi_or_file: smiles_or_inchi_or_file.value,
+    AdductType: AdductType_dropdownItem.value.code
   })
     .then((res) => {
       msg.value = res.data.result
@@ -33,33 +34,28 @@ const sendMessage = () => {
       console.error(error.response.data);
     });
 };
-/*
-const getMessage = () => {
-  axios.get("/")
-    .then((res) => {
-      msg.value = res.data; 
-    });
-};
-*/
+
 </script>
 
 <template>
-<!-- for docker version
+
   <h1>Here is MC</h1>
-  <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
+  <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
   <ProgressBar v-if="isSubmit" />
   <Bar v-if="isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
   <List_results v-if="isSubmit && msg && msg.structure" :energyData="msg.structure" />
--->
+  <pre>{{AdductType_dropdownItem.code}}</pre>
+  <pre>{{smiles_or_inchi_or_file}}</pre>
+<!-- 
   <h1>Here is CFM-ID</h1>
 
-  <Form v-model:Compound_string="Compound_string" v-model:isSubmit="isSubmit"/>
+  <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit"/>
   <ProgressBar v-if="isSubmit" />
   <Bar v-if="isSubmit" :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="isSubmit" :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit" :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
   <List_results v-if="isSubmit" :energyData="Energy_data.structure" />
-
+-->
 </template>

@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 
-const Compound_string = defineModel('Compound_string',{ default: '' })
+const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ default: '' })
 const isSubmit = defineModel('isSubmit',{ default: false })
+const AdductType_dropdownItem = defineModel('AdductType_dropdownItem',{ default: '[M+H]+' })
 
 const SpectraType_dropdownItems = ref([
     { name: 'ESI', code: 'ESI' },
@@ -18,12 +19,8 @@ const AdductType_dropdownItems = ref([
     { name: '[M-H]-', code: '[M-H]-' },
 ]);
 
-const SpectraType_dropdownItem = ref(null);
-const IonMode_dropdownItem = ref(null);
-const AdductType_dropdownItem = ref(null);
-
 const clearCompoundString = () => {
-    Compound_string.value = ''; // Clear the value
+    smiles_or_inchi_or_file.value = ''; // Clear the value
 }
 const submitCompoundString = () => {
     isSubmit.value = true; // Clear the value
@@ -39,7 +36,7 @@ const submitCompoundString = () => {
                     <div class="field col-12 md:col-12">
                         <label for="Parent_Compound_Structure">Parent Compound Structure</label>
                         <InputGroup>
-                            <InputText v-model="Compound_string" id="Parent_Compound_Structure" type="text"
+                            <InputText v-model="smiles_or_inchi_or_file" id="Parent_Compound_Structure" type="text"
                                 placeholder="Enter an InChI or SMILES string" />
                             <InputGroupAddon @click="clearCompoundString">
                                 <button @click="clearCompoundString" class="p-link layout-topbar-button">
@@ -53,7 +50,7 @@ const submitCompoundString = () => {
                     <!--    <h5>Vertical Grid</h5>   -->
                     <div class="formgrid grid">
                         <div class="field col-12 md:col-2">
-                            <label for="SpectraType">Adduct Type</label>
+                            <label for="SpectraType">Spectra Type</label>
                             <Dropdown id="SpectraType" v-model="SpectraType_dropdownItem"
                                 :options="SpectraType_dropdownItems" optionLabel="name" placeholder="ESI"></Dropdown>
                         </div>
@@ -62,11 +59,13 @@ const submitCompoundString = () => {
                             <Dropdown id="AdductType" v-model="AdductType_dropdownItem"
                                 :options="AdductType_dropdownItems" optionLabel="name" placeholder="[M+H]+"></Dropdown>
                         </div>
+                        <!--暂时隐藏IonMode选项
                         <div class="field col-12 md:col-2">
                             <label for="IonMode">Ion Mode</label>
                             <Dropdown id="IonMode" v-model="IonMode_dropdownItem" :options="IonMode_dropdownItems"
                                 optionLabel="name" placeholder="Positive"></Dropdown>
                         </div>
+                        -->
                     </div>
                 </div>
                 <div class="card">

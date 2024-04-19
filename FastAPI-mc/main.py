@@ -6,7 +6,7 @@ from pydantic import BaseModel
 
 def decoding_smiles(section):
 
-    pattern = r'(\d+)\s([\d.]+)\s([A-Za-z0-9#\+\(\)\[\]\=]+)'
+    pattern = r'(\d+)\s([\d.]+)\s([A-Za-z0-9#\+\-\(\)\[\]\=]+)'
     matches = re.findall(pattern, section)
 
     smiles_data = []
@@ -34,21 +34,21 @@ def decoding_energy(section):
     return energy_data
 
 
-def predict(smiles_or_inchi_or_file):
+def predict(predict_input):
 
 
     client = docker.from_env()
 
     #smiles_or_inchi_or_file = 'InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3'
     prob_thresh = 0.001
-    param_file = '/trained_models_cfmid4.0/[M+H]+/param_output.log'
-    config_file = '/trained_models_cfmid4.0/[M+H]+/param_config.txt'
+    param_file = f'/trained_models_cfmid4.0/{predict_input.AdductType}/param_output.log'
+    config_file = f'/trained_models_cfmid4.0/{predict_input.AdductType}/param_config.txt'
     annotate_fragments = 0
     output_file_or_dir = 'output'
     apply_postproc = 1
     suppress_exceptions = 0
 
-    command = f"cfm-predict {smiles_or_inchi_or_file} 0.001 /trained_models_cfmid4.0/[M+H]+/param_output.log /trained_models_cfmid4.0/[M+H]+/param_config.txt 1"
+    command = f"cfm-predict {predict_input.smiles_or_inchi_or_file} 0.001 {param_file} {config_file} 1"
     container_output = client.containers.run('wishartlab/cfmid:latest', command, remove=True)
 
     decoded_output = container_output.decode('utf-8')
@@ -72,7 +72,8 @@ with open('energy_data.json', 'w') as f:
     f.write(json_output)
 """
 class Input_item(BaseModel):
-    smiles: str
+    smiles_or_inchi_or_file: str
+    AdductType: str
 
 
 
@@ -88,11 +89,7 @@ app.add_middleware(
 )
 
 
-@app.get("/")
-def read_root():
-    return predict('InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3')
-
-@app.post("/update")
-async def calculate(data: Input_item):
-    result = predict(data.smiles)  # Use the 'data' instance to access 'smiles'
+@app.post("/predict")
+async def calculate(predict_input: Input_item):
+    result = predict(predict_input)
     return {"result": result}
