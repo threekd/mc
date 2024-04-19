@@ -9,7 +9,7 @@ import { ref } from 'vue'
 
 //childs
 const smiles_or_inchi_or_file = ref('')
-const AdductType_dropdownItem = ref('')
+const AdductType_dropdownItem = ref({ name: '[M+H]+', code: '[M+H]+' })
 const isSubmit = ref(false)
 const msg = ref(null)
 
@@ -46,8 +46,7 @@ const sendMessage = () => {
   <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
   <List_results v-if="isSubmit && msg && msg.structure" :energyData="msg.structure" />
-  <pre>{{AdductType_dropdownItem.code}}</pre>
-  <pre>{{smiles_or_inchi_or_file}}</pre>
+
 <!-- 
   <h1>Here is CFM-ID</h1>
 

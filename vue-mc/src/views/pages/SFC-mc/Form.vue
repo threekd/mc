@@ -1,17 +1,20 @@
 <script setup>
 import { ref } from 'vue';
 
-const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ default: '' })
+const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ type:String, default: '' })
 const isSubmit = defineModel('isSubmit',{ default: false })
-const AdductType_dropdownItem = defineModel('AdductType_dropdownItem',{ default: '[M+H]+' })
+const AdductType_dropdownItem = defineModel('AdductType_dropdownItem',{ type:Object, default: { name: '[M+H]+', code: '[M+H]+' } })
+const SpectraType_dropdownItem = defineModel('SpectraType_dropdownItem',{ type:Object, default: { name: 'ESI', code: 'ESI' } })
+const Example = defineModel('Example',{ type:String, default: '' })
 
 const SpectraType_dropdownItems = ref([
     { name: 'ESI', code: 'ESI' },
 ]);
 
-const IonMode_dropdownItems = ref([
-    { name: 'Positive', code: 'Positive' },
-    { name: 'Nagetive', code: 'Nagetive' },
+const Examples = ref([
+    { name: 'Example1', code: 'InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3' },
+    { name: 'Example2', code: 'CNCCC1=CNC2=CC=CC=C21' },
+    { name: 'Example3', code: 'CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)N[C@H](C)CO' }
 ]);
 
 const AdductType_dropdownItems = ref([
@@ -59,11 +62,11 @@ const submitCompoundString = () => {
                             <Dropdown id="AdductType" v-model="AdductType_dropdownItem"
                                 :options="AdductType_dropdownItems" optionLabel="name" placeholder="[M+H]+"></Dropdown>
                         </div>
-                        <!--暂时隐藏IonMode选项
+                        <!-- to be delete
                         <div class="field col-12 md:col-2">
-                            <label for="IonMode">Ion Mode</label>
-                            <Dropdown id="IonMode" v-model="IonMode_dropdownItem" :options="IonMode_dropdownItems"
-                                optionLabel="name" placeholder="Positive"></Dropdown>
+                            <label for="Example">Examples</label>
+                            <Dropdown id="Example" v-model="Example" :options="Examples"
+                                optionLabel="name" placeholder="Select one to try"></Dropdown>
                         </div>
                         -->
                     </div>
