@@ -63,10 +63,10 @@ const isOutsideClicked = (event) => {
 <template>
     <div class="layout-topbar">
         <router-link to="/" class="layout-topbar-logo">
-            <img :src="logoUrl" alt="logo" />
+        <!--    <img :src="logoUrl" alt="logo" />  -->
             <span>APTC</span>
         </router-link>
-
+        <!--隐藏顶部按钮
         <button class="p-link layout-menu-button layout-topbar-button" @click="onMenuToggle()">
             <i class="pi pi-bars"></i>
         </button>
@@ -89,6 +89,7 @@ const isOutsideClicked = (event) => {
                 <span>Settings</span>
             </button>
         </div>
+        -->
     </div>
 </template>
 

@@ -11,7 +11,7 @@ const layoutConfig = reactive({
 });
 
 const layoutState = reactive({
-    staticMenuDesktopInactive: false,
+    staticMenuDesktopInactive: true, //隐藏侧边栏
     overlayMenuActive: false,
     profileSidebarVisible: false,
     configSidebarVisible: false,

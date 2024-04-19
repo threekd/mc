@@ -24,6 +24,8 @@ const props = defineProps({
     }
 });
 
+
+
 const getOrCreateTooltip = (chart) => {
   let tooltipEl = chart.canvas.parentNode.querySelector('div');
 
@@ -60,11 +62,11 @@ const externalTooltipHandler = (context) => {
 
   let tooltipMolecule = 'CNCCC1=CNC2=CC=CC=C21'; // 通过 tooltip 获取分子数据
 
-  /*
+ 
   if (tooltip.dataPoints && tooltip.dataPoints.length) {
-    tooltipMolecule = tooltip.dataPoints[0].label; // 从这里设置分子数据！
+    tooltipMolecule = props.energyData[0].SMILES; // 从这里设置分子数据！
   }
-  */
+ 
   const RDKitApp = createApp({
     render() {
       // 确保你在这里传递正确的分子字符串
@@ -146,7 +148,7 @@ const setColorOptions = () => {
 
 const setChart = () => {
 
-    const mzValues = props.energyData.map(data => data["m/z"].toFixed(2));
+    const mzValues = props.energyData.map(data => data["mass"].toFixed(2));
     const intensityValues = props.energyData.map(data => data.intensity);
 
     barData.value = {

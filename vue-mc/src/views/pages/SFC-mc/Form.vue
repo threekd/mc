@@ -73,6 +73,9 @@ const submitCompoundString = () => {
                 </div>
                 <div class="card">
                     <div class="p-fluid formgrid grid">
+                        <div class="field col-12 md:col-12">
+                            <label>This function predicts QToF MS/MS spectra for multiple collision energies for a given input small molecule. Spectra are computed for low (10 eV), medium (20 eV) and high (40 eV) collision energy levels and are represented by a list of 'mass intensity' pairs, each corresponding to a peak in the spectrum.</label>
+                        </div>
                         <div class="field col-12 md:col-2">
                             <Button @click="submitCompoundString" label="Submit" v-model="isSubmit" class="mr-2 mb-2"></Button>
                         </div>

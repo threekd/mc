@@ -39,7 +39,7 @@ const sendMessage = () => {
 
 <template>
 
-  <h1>Here is MC</h1>
+  <h1>CFM-ID</h1>
   <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
   <ProgressBar v-if="isSubmit" />
   <Bar v-if="isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />

@@ -25,9 +25,9 @@ def decoding_energy(section):
         data_points = []
         for m in data_point_pattern.finditer(data_block):
             data_points.append({
-                'm/z': float(m.group(1)),
+                'mass': float(m.group(1)),
                 'intensity': float(m.group(2)),
-                'other': int(m.group(3)),
+                'fragment_id': int(m.group(3)),
                 # Add any additional captures here...
             })
         energy_data[energy_level] = data_points
@@ -62,8 +62,28 @@ def predict(predict_input):
     output_data = energy_data
     output_data["structure"] = seiles_data
 
-    return output_data
+    return match_fregment(output_data)
 
+def match_fregment(data):
+
+    # Create a dictionary to map structure index to its data
+    structure_mapping = {struct['index']: struct for struct in data['structure']}
+
+    # Function to enrich energy fragments with structure data
+    def enrich_fragments(energy_data):
+        for fragment in energy_data:
+            # Find the corresponding structure data using fragment_id
+            structure = structure_mapping.get(fragment['fragment_id'])
+            
+            # Add the molecular_weight and SMILES data to the fragment
+            if structure:
+                fragment['molecular_weight'] = structure['molecular_weight']
+                fragment['SMILES'] = structure['SMILES']
+
+    # Enrich fragments in all energy levels
+    for energy_key in ['energy0', 'energy1', 'energy2']:
+        enrich_fragments(data[energy_key])
+    return data
 
 #json_output = json.dumps(decoding_energy(energy_section), indent=4)
 
