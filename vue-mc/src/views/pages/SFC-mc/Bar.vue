@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue';
 import { createApp, h } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
-import RDKit from './RDKit-Vue/ExampleSVG.vue'
+import RDKit from './RDKit-SVG.vue'
 
 
 const props = defineProps({

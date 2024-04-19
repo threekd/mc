@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from 'vue'
-import RDKit from './RDKit-Vue/ExampleSVG.vue'
+import RDKit from './RDKit-SVG.vue'
 import Energy_data_json from '../data/energy_data.json'
 
 const props = defineProps({
