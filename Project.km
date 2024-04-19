@@ -1,0 +1,116 @@
+{
+    "root": {
+        "data": {
+            "id": "d0o6gn0ov1k0",
+            "created": 1713537819503,
+            "text": "CFM-ID Web应用"
+        },
+        "children": [
+            {
+                "data": {
+                    "id": "d0o6grv5mmg0",
+                    "created": 1713537830052,
+                    "text": "Docker"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d0o6hpsnjhs0",
+                            "created": 1713537903911,
+                            "text": "输出CFM-ID预测结果"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d0o6jdkoa3s0",
+                            "created": 1713538034036,
+                            "text": "制作image镜像，实现web应用一键启动"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d0o6gxl55xs0",
+                    "created": 1713537842507,
+                    "text": "Vue3",
+                    "expandState": "expand"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d0o6hyobibk0",
+                            "created": 1713537923240,
+                            "text": "Prime Vue主题提供响应式网页框架"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d0o6lsv3c800",
+                            "created": 1713538224046,
+                            "text": "Chart.js提供柱形图渲染，支持自定义tooltips"
+                        },
+                        "children": []
+                    },
+                    {
+                        "data": {
+                            "id": "d0o6hdju0yo0",
+                            "created": 1713537877257,
+                            "text": "RDKit.js for Vue"
+                        },
+                        "children": [
+                            {
+                                "data": {
+                                    "id": "d0o6if6cx3k0",
+                                    "created": 1713537959160,
+                                    "text": "对SMILES进行画图"
+                                },
+                                "children": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d0o6hhzy6uw0",
+                    "created": 1713537886938,
+                    "text": "FastAPI"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d0o6it4puu80",
+                            "created": 1713537989535,
+                            "text": "提供后端的api，作为前端页面与结果数据的桥梁"
+                        },
+                        "children": []
+                    }
+                ]
+            },
+            {
+                "data": {
+                    "id": "d0o6kn5y9e00",
+                    "created": 1713538133278,
+                    "text": "Python"
+                },
+                "children": [
+                    {
+                        "data": {
+                            "id": "d0o6kuidhow0",
+                            "created": 1713538149266,
+                            "text": "通过正则表达式解析结果，输出需要的Json格式数据"
+                        },
+                        "children": []
+                    }
+                ]
+            }
+        ]
+    },
+    "template": "default",
+    "theme": "fresh-green",
+    "version": "1.4.43"
+}
