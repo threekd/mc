@@ -18,6 +18,7 @@ const AdductType_dropdownItems = ref([
     { name: '[M-H]-', code: '[M-H]-' },
 ]);
 
+const SpectraType_dropdownItem = ref(null);
 const IonMode_dropdownItem = ref(null);
 const AdductType_dropdownItem = ref(null);
 

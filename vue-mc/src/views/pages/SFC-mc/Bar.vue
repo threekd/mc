@@ -19,7 +19,7 @@ const props = defineProps({
         default: 1
     },
     Energy_level: {
-        type: Text,
+        type: String,
         default: "Energy"
     }
 });
@@ -228,5 +228,4 @@ watch(
             </div>
         </div>
     </div>
-    <pre>{{ msg }}</pre> 
 </template>

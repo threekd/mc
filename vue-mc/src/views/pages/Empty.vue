@@ -12,7 +12,7 @@ const Compound_string = ref('')
 const msg = ref(null)
 const isSubmit = ref(false)
 
-
+/*
 import { watch } from 'vue'
 
 watch(isSubmit, (newValue) => {
