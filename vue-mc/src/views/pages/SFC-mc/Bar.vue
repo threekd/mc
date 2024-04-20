@@ -168,7 +168,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: true, // 正确地禁用默认工具提示
+                enabled: false, // 正确地禁用默认工具提示
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
