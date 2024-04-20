@@ -23,7 +23,7 @@ def decoding_energy(section):
         data_points = []
         for m in data_point_pattern.finditer(data_block):
             data_points.append({
-                'm/z': float(m.group(1)),
+                'mass': float(m.group(1)),
                 'intensity': float(m.group(2)),
                 'fragment_id': int(m.group(3)),
                 # Add any additional captures here...

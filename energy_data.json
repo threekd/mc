@@ -1,111 +1,111 @@
 {
     "energy0": [
         {
-            "m/z": 144.08078,
+            "mass": 144.08078,
             "intensity": 100.0,
             "fragment_id": 12
         },
         {
-            "m/z": 175.12297,
+            "mass": 175.12297,
             "intensity": 5.96,
             "fragment_id": 0
         }
     ],
     "energy1": [
         {
-            "m/z": 44.04948,
+            "mass": 44.04948,
             "intensity": 15.65,
             "fragment_id": 74
         },
         {
-            "m/z": 127.05423,
+            "mass": 127.05423,
             "intensity": 12.87,
             "fragment_id": 33
         },
         {
-            "m/z": 144.08078,
+            "mass": 144.08078,
             "intensity": 100.0,
             "fragment_id": 12
         }
     ],
     "energy2": [
         {
-            "m/z": 44.04948,
+            "mass": 44.04948,
             "intensity": 100.0,
             "fragment_id": 74
         },
         {
-            "m/z": 77.03858,
+            "mass": 77.03858,
             "intensity": 25.17,
             "fragment_id": 116
         },
         {
-            "m/z": 79.05423,
+            "mass": 79.05423,
             "intensity": 41.17,
             "fragment_id": 115
         },
         {
-            "m/z": 91.05423,
+            "mass": 91.05423,
             "intensity": 66.21,
             "fragment_id": 83
         },
         {
-            "m/z": 94.06513,
+            "mass": 94.06513,
             "intensity": 24.5,
             "fragment_id": 16
         },
         {
-            "m/z": 103.05423,
+            "mass": 103.05423,
             "intensity": 33.75,
             "fragment_id": 59
         },
         {
-            "m/z": 115.05423,
+            "mass": 115.05423,
             "intensity": 61.2,
             "fragment_id": 10
         },
         {
-            "m/z": 116.04948,
+            "mass": 116.04948,
             "intensity": 38.48,
             "fragment_id": 87
         },
         {
-            "m/z": 117.06988,
+            "mass": 117.06988,
             "intensity": 73.61,
             "fragment_id": 19
         },
         {
-            "m/z": 118.06513,
+            "mass": 118.06513,
             "intensity": 64.23,
             "fragment_id": 3
         },
         {
-            "m/z": 127.05423,
+            "mass": 127.05423,
             "intensity": 66.29,
             "fragment_id": 33
         },
         {
-            "m/z": 128.04948,
+            "mass": 128.04948,
             "intensity": 31.69,
             "fragment_id": 30
         },
         {
-            "m/z": 129.06988,
+            "mass": 129.06988,
             "intensity": 27.7,
             "fragment_id": 15
         },
         {
-            "m/z": 130.06513,
+            "mass": 130.06513,
             "intensity": 32.94,
             "fragment_id": 7
         },
         {
-            "m/z": 144.08078,
+            "mass": 144.08078,
             "intensity": 71.39,
             "fragment_id": 23
         },
         {
-            "m/z": 146.09643,
+            "mass": 146.09643,
             "intensity": 38.42,
             "fragment_id": 104
         }
