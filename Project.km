@@ -17,7 +17,7 @@
                         "data": {
                             "id": "d0o6hpsnjhs0",
                             "created": 1713537903911,
-                            "text": "输出CFM-ID预测结果"
+                            "text": "输出CFM-ID的image预测结果"
                         },
                         "children": []
                     },
@@ -25,7 +25,7 @@
                         "data": {
                             "id": "d0o6jdkoa3s0",
                             "created": 1713538034036,
-                            "text": "制作image镜像，实现web应用一键启动"
+                            "text": "制作自己的image，实现web应用一键启动"
                         },
                         "children": []
                     }
@@ -51,6 +51,14 @@
                                     "id": "d0o7sh845j40",
                                     "created": 1713541568371,
                                     "text": "响应式设计"
+                                },
+                                "children": []
+                            },
+                            {
+                                "data": {
+                                    "id": "d0p7vi1qbw80",
+                                    "created": 1713643365211,
+                                    "text": "各种UI组件"
                                 },
                                 "children": []
                             }
