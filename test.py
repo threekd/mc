@@ -30,7 +30,8 @@ def output_to_json1(output_str:str):
 
 def output_to_json(output_str:str):
 
-    
+    output_dict = {}
+
     re_energy_and_fragment = re.compile(r'energy0(.*?)energy1(.*?)energy2(.*?)\n\n(.*)',flags=re.DOTALL)
 
     energy_and_fragment = re_energy_and_fragment.search(output_str)
@@ -38,11 +39,19 @@ def output_to_json(output_str:str):
         energys = energy_and_fragment.groups()[:3]
         fragments = energy_and_fragment.groups()[3:4]
 
-        for energy in energys:
+        for num, energy in enumerate(energys):
+            mass_intensity_other_dict = {}
+
             re_mass_intensity_other = re.compile(r'^([\d.]+)\s([\d.]+)\s(.*)', flags=re.MULTILINE)
             mass_intensity_other = re_mass_intensity_other.findall(energy)
-            print(mass_intensity_other)
+            for item in mass_intensity_other:
+                mass = item[0]
+                intensity = item[1]
+                other = item[2]
 
+                mass_intensity_other_dict[f'{mass}'] = [intensity,other]
+            output_dict[f'energy{num}'] = mass_intensity_other_dict
+        print(output_dict)
 
 
         
