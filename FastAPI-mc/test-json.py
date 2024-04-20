@@ -4,7 +4,7 @@ import json
 
 def decoding_smiles(section):
 
-    pattern = r'(\d+)\s([\d.]+)\s([A-Za-z0-9#\+\-\(\)\[\]\=]+)'
+    pattern = r'(\d+)\s([\d.]+)\s(.+)\n'
     matches = re.findall(pattern, section)
 
     smiles_data = []

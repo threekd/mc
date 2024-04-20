@@ -470,11 +470,6 @@
             "index": 133,
             "molecular_weight": 175.1229749001,
             "SMILES": "C=[NH+]C#CC1=CN=C(CCCC)C1"
-        },
-        {
-            "index": 134,
-            "molecular_weight": 175.1229749001,
-            "SMILES": "C=[NH+]C#CC1=CN=CC1CCCC"
         }
     ]
 }

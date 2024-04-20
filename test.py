@@ -9,8 +9,17 @@ output0= output.group(0)
 
 #print(output0)
 
-re_energy = re.compile(r'^energy\d(.*?)energy\d(.*?)energy\d(.*)',flags=re.DOTALL)
+re_energy = re.compile(r'energy\d(.*?)energy\d(.*?)energy\d(.*?)\n\n(.*)',flags=re.DOTALL)
 
-energys = re_energy.search(output0)
-print(energys.group(0))
+energys = re_energy.search(data)
+"""
 print('energy0',energys.group(1))
+print('energy1',energys.group(2))
+print('energy2',energys.group(3))
+"""
+print('energy3',energys.group(4))
+
+
+re_stru = re.compile(r'(\d+)\s([\d.]+)\s(.+)\n',flags=re.MULTILINE)
+a = re_stru.findall(energys.group(4))
+print(a)
