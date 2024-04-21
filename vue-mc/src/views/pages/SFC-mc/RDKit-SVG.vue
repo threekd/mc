@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch, defineProps } from 'vue';
-import MoleculeStructure from "./rdkit-js/examples/vue/src/components/MoleculeStructure.vue";
+import MoleculeStructure from "./MoleculeStructure.vue";
 
 const props = defineProps({
   molecules: {

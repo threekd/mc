@@ -55,7 +55,6 @@ const externalTooltipHandler = (context) => {
    if (tooltip.dataPoints && tooltip.dataPoints.length) {
     const dataPoint = tooltip.dataPoints[0];
     const mzValue = dataPoint.label; 
-    console.log(mzValue)
 
     tooltipMolecule = props.energyData[mzValue][1][1]; // Now it is safe to set the molecule data
 }
