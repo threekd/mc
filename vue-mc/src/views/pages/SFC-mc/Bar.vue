@@ -4,7 +4,6 @@ import { createApp, h } from 'vue';
 import { useLayout } from '@/layout/composables/layout';
 import RDKit from './RDKit-SVG.vue'
 
-
 const props = defineProps({
     energyData: {
         type: Object,
@@ -23,7 +22,6 @@ const props = defineProps({
         default: "Energy"
     }
 });
-
 
 
 const getOrCreateTooltip = (chart) => {
@@ -60,13 +58,17 @@ const externalTooltipHandler = (context) => {
     return;
   }
 
-  let tooltipMolecule = 'CNCCC1=CNC2=CC=CC=C21'; // 通过 tooltip 获取分子数据
+   let tooltipMolecule = 'CNCCC1=CNC2=CC=CC=C21'; // 通过 tooltip 获取分子数据
 
- 
-  if (tooltip.dataPoints && tooltip.dataPoints.length) {
-    tooltipMolecule = props.energyData[0].SMILES; // 从这里设置分子数据！
-  }
- 
+
+   if (tooltip.dataPoints && tooltip.dataPoints.length) {
+    const dataPoint = tooltip.dataPoints[0];
+    const mzValue = dataPoint.label; 
+    console.log(mzValue)
+
+    tooltipMolecule = props.energyData[mzValue][1][1]; // Now it is safe to set the molecule data
+}
+
   const RDKitApp = createApp({
     render() {
       // 确保你在这里传递正确的分子字符串
@@ -148,9 +150,9 @@ const setColorOptions = () => {
 
 const setChart = () => {
 
-    const mzValues = props.energyData.map(data => data["mass"].toFixed(2));
-    const intensityValues = props.energyData.map(data => data.intensity);
-
+    //const mzValues = Object.keys(props.energyData).map(key => parseFloat(key));
+    const mzValues = Object.keys(props.energyData);
+    const intensityValues = Object.keys(props.energyData).map(key => parseFloat(props.energyData[key][0]));
     barData.value = {
         labels: mzValues,
         datasets: [
@@ -168,7 +170,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: false, // 正确地禁用默认工具提示
+                enabled: true, // 正确地禁用默认工具提示
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
@@ -222,6 +224,7 @@ watch(
 </script>
 
 <template>
+    <pre>{{ props.energyData['144.081'][1][1]}}</pre>
     <div class="grid p-fluid">
         <div class="col-12 xl:col-12">
             <div class="card">

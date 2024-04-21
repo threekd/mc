@@ -31,7 +31,8 @@ def output_to_json(output_str:str):
             mass_intensity_other = re_mass_intensity_other.findall(energy)
             for item in mass_intensity_other:
                 other_dict = {}
-                mass = item[0]
+                #mass = item[0]
+                mass = round(float(item[0]),3)
                 intensity = item[1]
                 other = re.findall(r'[\d.]+',item[2])
                 half_len_other = len(other)//2

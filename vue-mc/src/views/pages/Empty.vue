@@ -45,7 +45,7 @@ const sendMessage = () => {
   <Bar v-if="isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
-  <List_results v-if="isSubmit && msg && msg.structure" :energyData="msg.structure" />
+  <List_results v-if="isSubmit && msg && msg.fragment" :energyData="msg.fragment" />
 
 <!-- 
   <h1>Here is CFM-ID</h1>
@@ -55,6 +55,6 @@ const sendMessage = () => {
   <Bar v-if="isSubmit" :energyData="Energy_data.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="isSubmit" :energyData="Energy_data.energy1" :Energy_level="'Middle Energy'" />
   <Bar v-if="isSubmit" :energyData="Energy_data.energy2" :Energy_level="'High Energy'" />
-  <List_results v-if="isSubmit" :energyData="Energy_data.structure" />
+  <List_results v-if="isSubmit" :energyData="Energy_data.fragment" />
 -->
 </template>

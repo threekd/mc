@@ -51,17 +51,17 @@ const onSortChange = (event) => {
                                 <div class="p-4 border-1 surface-border surface-card border-round flex flex-column">
                                     <div class="surface-50 flex justify-content-center border-round p-3">
                                         <div class="relative mx-auto">
-                                            <RDKit :molecules=item.SMILES />
+                                            <RDKit :molecules=item[1] />
                                         </div>
                                     </div>
                                     <div class="pt-4">
                                         <div class="flex flex-row justify-content-between align-items-start gap-2">
                                             <div>
-                                                <div class="text-lg font-medium text-900 mt-1">{{ item.molecular_weight }}</div>
+                                                <div class="text-lg font-medium text-900 mt-1">{{ item[0] }}</div>
                                             </div>
                                         </div>
                                         <div class="flex flex-column gap-4 mt-4">
-                                            <span class="text-2xl font-semibold text-900">{{ item.SMILES }}</span>
+                                            <span class="text-2xl font-semibold text-900">{{ item[1] }}</span>
                                         </div>
                                     </div>
                                 </div>
