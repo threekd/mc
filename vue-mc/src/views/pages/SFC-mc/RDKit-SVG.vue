@@ -29,8 +29,7 @@ watch(() => props.molecules, (newMolecule) => {
       <MoleculeStructure
         :id="`structure-example-svg-${idx}`"
         :structure="mol"
-        :width="300"
-        :height="300"
+
         svg-mode
       ></MoleculeStructure>
     </div>

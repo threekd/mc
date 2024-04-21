@@ -57,7 +57,7 @@ watch([sortOrder, sortField], () => {
         <div class="col-12">
             <div class="card">
                 <h5>DataView</h5>
-                <DataView :value="dataviewValue" :layout="layout" :paginator="true" :rows="8" :sortOrder="sortOrder" :sortField="sortField">
+                <DataView :value="dataviewValue" :layout="layout" :paginator="true" :rows="9" :sortOrder="sortOrder" :sortField="sortField">
                     <template #header>
                         <div class="grid grid-nogutter">
                             <div class="col-6 text-left">
@@ -67,7 +67,7 @@ watch([sortOrder, sortField], () => {
                     </template>
                     <template #grid="slotProps">
                         <div class="grid grid-nogutter">
-                            <div v-for="(item, index) in slotProps.items" :key="index" class="col-12 sm:col-6 md:col-6 p-2">
+                            <div v-for="(item, index) in slotProps.items" :key="index" class="col-12 sm:col-6 md:col-4 p-2">
                                 <div class="p-4 border-1 surface-border surface-card border-round flex flex-column">
                                     <div class="surface-50 flex justify-content-center border-round p-3">
                                         <div class="relative mx-auto">
