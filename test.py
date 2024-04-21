@@ -16,6 +16,14 @@ def output_to_json(output_str:str):
         energys = energy_and_fragment.groups()[:3]
         fragment = energy_and_fragment.group(4)
 
+        re_id_mass_smiles = re.compile(r'^([\d]+)\s([\d.]+)\s(.*)', flags=re.MULTILINE)
+        id_mass_smiles = re_id_mass_smiles.findall(fragment)
+        for item in id_mass_smiles:
+            id = item[0]
+            mass = item[1]
+            smiles = item[2]
+            fragment_dict[f'{id}'] = [mass,smiles]
+
         for num, energy in enumerate(energys):
             mass_intensity_other_dict = {}
 
@@ -26,23 +34,26 @@ def output_to_json(output_str:str):
                 mass = item[0]
                 intensity = item[1]
                 other = re.findall(r'[\d.]+',item[2])
-                for i in range(len(other)//2):
-                    other_dict[f'{other[i]}'] = other[len(other)//2+i]
-                mass_intensity_other_dict[f'{mass}'] = [intensity,other_dict]
+                half_len_other = len(other)//2
+                for i in range(half_len_other):
+                    other_dict[f'{other[i]}'] = other[half_len_other+i]
+                main_SMILES = fragment_dict[other[0]]
+                
+                mass_intensity_other_dict[f'{mass}'] = [intensity,main_SMILES,other_dict]
+
             output_dict[f'energy{num}'] = mass_intensity_other_dict
 
-        re_id_mass_smiles = re.compile(r'^([\d]+)\s([\d.]+)\s(.*)', flags=re.MULTILINE)
-        id_mass_smiles = re_id_mass_smiles.findall(fragment)
-        for item in id_mass_smiles:
-            id = item[0]
-            mass = item[1]
-            smiles = item[2]
-            fragment_dict[f'{id}'] = [mass,smiles]
         output_dict['fragment'] = fragment_dict
         print(output_dict)
 
+
+    
+
     output_json = json.dumps(output_dict, indent=4)
     return output_json
+
+
+
 
 with open('energy_data.json', 'w') as f:
     f.write(output_to_json(data))
