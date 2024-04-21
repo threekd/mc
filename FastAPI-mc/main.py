@@ -44,7 +44,8 @@ def output_to_json(output_str:str):
             output_dict[f'energy{num}'] = mass_intensity_other_dict
 
         output_dict['fragment'] = fragment_dict
-        print(output_dict)
+
+        return(output_dict)
 
 
 def predict(predict_parameter):
@@ -65,18 +66,9 @@ def predict(predict_parameter):
 
     return output_to_json(decoded_output)
 
-
-"""
-with open('energy_data.json', 'w') as f:
-    f.write(json_output)
-"""
 class Input_item(BaseModel):
     smiles_or_inchi_or_file: str
     AdductType: str
-
-
-
-
 
 app = FastAPI()
 app.add_middleware(
@@ -86,7 +78,6 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 @app.post("/predict")
 async def calculate(predict_parameter: Input_item):
