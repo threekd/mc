@@ -224,7 +224,6 @@ watch(
 </script>
 
 <template>
-    <pre>{{ props.energyData['144.081'][1][1]}}</pre>
     <div class="grid p-fluid">
         <div class="col-12 xl:col-12">
             <div class="card">

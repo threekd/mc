@@ -21,8 +21,8 @@ const sortKey = ref(null);
 const sortOrder = ref(null);
 const sortField = ref(null);
 const sortOptions = ref([
-    { label: 'Price High to Low', value: '!price' },
-    { label: 'Price Low to High', value: 'price' }
+    { label: 'Mass High to Low', value: '!Mass' },
+    { label: 'Mass Low to High', value: 'Mass' }
 ]);
 
 const onSortChange = (event) => {
