@@ -170,7 +170,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: true, // 正确地禁用默认工具提示
+                enabled: false, // 正确地禁用默认工具提示
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
@@ -182,14 +182,14 @@ const setChart = () => {
         },
         scales: {
             x: {
-                beginAtZero: true, // 在0开始
+                //beginAtZero: true, // 在0开始
                 type: 'linear', // 线性类型
                 position: 'bottom', // 位置
-                min: 0, // 最小值
-                max: 200, // 最大值
+                //min: 0, // 最小值
+                //max: 200, // 最大值
                
                 ticks: {
-                    stepSize: 10,
+                    //stepSize: 10,
                     color: textColorSecondary,
                     font: {
                         weight: 500
