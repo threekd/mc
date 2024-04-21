@@ -9,11 +9,10 @@ const props = defineProps({
         default: () => ({ /* 默认对象 */ })
     }
 });
-// 将对象转换为数组格式，以符合DataView预期的数据格式。
 const dataviewValue = ref(
   Object.entries(props.energyData).map(([key, value]) => ({ fregment_id: key, mass: value[0], SMILES: value[1] }))
 );
-//const dataviewValue = ref(props.energyData)
+
 const molecules = ref('')
 
 const layout = ref('grid');
@@ -48,6 +47,16 @@ const onSortChange = (event) => {
             <div class="card">
                 <h5>DataView</h5>
                 <DataView :value="dataviewValue" :layout="layout" :paginator="true" :rows="8" :sortOrder="sortOrder" :sortField="sortField">
+                    <template #header>
+                        <div class="grid grid-nogutter">
+                            <div class="col-6 text-left">
+                                <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Mass" @change="onSortChange($event)" />
+                            </div>
+                            <div class="col-6 text-right">
+                                <DataViewLayoutOptions v-model="layout" />
+                            </div>
+                        </div>
+                    </template>
                     <template #grid="slotProps">
                         <div class="grid grid-nogutter">
                             <div v-for="(item, index) in slotProps.items" :key="index" class="col-12 sm:col-6 md:col-6 p-2">

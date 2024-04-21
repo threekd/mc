@@ -7,15 +7,7 @@ import RDKit from './RDKit-SVG.vue'
 const props = defineProps({
     energyData: {
         type: Object,
-        default: () => ({ /* 默认对象 */ })
-    },
-    Bar_percentage: {
-        type: Number,
-        default: 0.5
-    },
-    Cateory_percentage: {
-        type: Number,
-        default: 1
+        default: () => ({ })
     },
     Energy_level: {
         type: String,
@@ -58,8 +50,7 @@ const externalTooltipHandler = (context) => {
     return;
   }
 
-   let tooltipMolecule = 'CNCCC1=CNC2=CC=CC=C21'; // 通过 tooltip 获取分子数据
-
+   let tooltipMolecule = ''; 
 
    if (tooltip.dataPoints && tooltip.dataPoints.length) {
     const dataPoint = tooltip.dataPoints[0];
@@ -71,15 +62,11 @@ const externalTooltipHandler = (context) => {
 
   const RDKitApp = createApp({
     render() {
-      // 确保你在这里传递正确的分子字符串
       return h(RDKit, { molecules: tooltipMolecule }); 
     },
   });
 
-  // 创建包装容器来挂载我们的 RDKit 组件
   const rdkitContainer = document.createElement('div');
-  
-  // 将 RDKit Vue 应用挂载到创建的 div 容器上
   RDKitApp.mount(rdkitContainer);
 
   // Set Text
@@ -100,10 +87,10 @@ const externalTooltipHandler = (context) => {
 
     const rdkitWrapperTr = document.createElement('tr');
     const rdkitWrapperTd = document.createElement('td');
-    rdkitWrapperTd.colSpan = '2'; // 让 RDKit 组件占据整个宽度
-    rdkitWrapperTd.appendChild(rdkitContainer); // 把 RDKit 组件附加到单元格
+    rdkitWrapperTd.colSpan = '2'; 
+    rdkitWrapperTd.appendChild(rdkitContainer); 
     rdkitWrapperTr.appendChild(rdkitWrapperTd);
-    tableBody.appendChild(rdkitWrapperTr); // 将 RDKit 的行添加到表格主体
+    tableBody.appendChild(rdkitWrapperTr);
 
     const tableRoot = tooltipEl.querySelector('table');
 
@@ -121,8 +108,8 @@ const externalTooltipHandler = (context) => {
 
   // Display, position, and set styles for font
 
-  const topoffset = -100
-  const leftoffset = 180
+  const topoffset = -200
+  const leftoffset = 120
   tooltipEl.style.opacity = 1;
   tooltipEl.style.left = leftoffset + positionX + tooltip.caretX + 'px';
   tooltipEl.style.top = topoffset + positionY + tooltip.caretY + 'px';
@@ -161,8 +148,8 @@ const setChart = () => {
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
                 data: intensityValues,
-                barPercentage: props.Bar_percentage,
-                categoryPercentage: props.Cateory_percentage
+                //barPercentage: 1
+                //categoryPercentage: 1
             }
         ]
     };
@@ -170,7 +157,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: false, // 正确地禁用默认工具提示
+                enabled: false, 
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
@@ -182,11 +169,11 @@ const setChart = () => {
         },
         scales: {
             x: {
-                //beginAtZero: true, // 在0开始
-                type: 'linear', // 线性类型
-                position: 'bottom', // 位置
-                //min: 0, // 最小值
-                //max: 200, // 最大值
+                //beginAtZero: true,
+                type: 'linear', 
+                position: 'bottom', 
+                //min: 0,
+                //max: 200, 
                
                 ticks: {
                     //stepSize: 10,
