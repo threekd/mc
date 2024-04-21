@@ -157,7 +157,7 @@ const setChart = () => {
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
                 data: intensityValues,
-                //barPercentage: 1
+                //barPercentage: 1,
                 //categoryPercentage: 1
             }
         ]
@@ -178,7 +178,7 @@ const setChart = () => {
         },
         scales: {
             x: {
-                //beginAtZero: true,
+                beginAtZero: true,
                 type: 'linear', 
                 position: 'bottom', 
                 //min: 0,
