@@ -28,7 +28,6 @@ const sendMessage = () => {
   })
     .then((res) => {
       msg.value = res.data.result
-      console.log(res.data);
     })
     .catch((error) => {
       console.error(error.response.data);

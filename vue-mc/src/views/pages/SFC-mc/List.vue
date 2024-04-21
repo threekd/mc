@@ -1,7 +1,9 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, computed, watch } from 'vue'
 import RDKit from './RDKit-SVG.vue'
 import Energy_data_json from '../data/energy_data.json'
+// 引入 lodash 的 orderBy 函数用于排序
+import { orderBy } from 'lodash-es'
 
 const props = defineProps({
     energyData: {
@@ -9,19 +11,24 @@ const props = defineProps({
         default: () => ({ /* 默认对象 */ })
     }
 });
-const dataviewValue = ref(
+const rawData = ref(
   Object.entries(props.energyData).map(([key, value]) => ({ fregment_id: key, mass: value[0], SMILES: value[1] }))
 );
+
+// 使用计算属性对 rawData 进行排序，依据 sortField 和 sortOrder
+const dataviewValue = computed(() => {
+  return orderBy(rawData.value, [sortField.value], [sortOrder.value === 1 ? 'asc' : 'desc']);
+});
 
 const molecules = ref('')
 
 const layout = ref('grid');
 const sortKey = ref(null);
-const sortOrder = ref(null);
-const sortField = ref(null);
+const sortOrder = ref(1);
+const sortField = ref('mass');
 const sortOptions = ref([
-    { label: 'Mass High to Low', value: '!Mass' },
-    { label: 'Mass Low to High', value: 'Mass' }
+    { label: 'Mass High to Low', value: '!mass' },
+    { label: 'Mass Low to High', value: 'mass' }
 ]);
 
 const onSortChange = (event) => {
@@ -30,15 +37,19 @@ const onSortChange = (event) => {
 
     if (value.indexOf('!') === 0) {
         sortOrder.value = -1;
-        sortField.value = value.substring(1, value.length);
+        sortField.value = value.substring(1, value.length).toLowerCase();
         sortKey.value = sortValue;
     } else {
         sortOrder.value = 1;
-        sortField.value = value;
+        sortField.value = value.toLowerCase();
         sortKey.value = sortValue;
     }
 };
 
+// 监听 sortOrder 和 sortField 的变化，并更新 dataviewValue
+watch([sortOrder, sortField], () => {
+  dataviewValue.value = orderBy(rawData.value, [sortField.value], [sortOrder.value === 1 ? 'asc' : 'desc']);
+});
 </script>
 
 <template>
@@ -51,9 +62,6 @@ const onSortChange = (event) => {
                         <div class="grid grid-nogutter">
                             <div class="col-6 text-left">
                                 <Dropdown v-model="sortKey" :options="sortOptions" optionLabel="label" placeholder="Sort By Mass" @change="onSortChange($event)" />
-                            </div>
-                            <div class="col-6 text-right">
-                                <DataViewLayoutOptions v-model="layout" />
                             </div>
                         </div>
                     </template>
