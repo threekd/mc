@@ -110,8 +110,18 @@ const externalTooltipHandler = (context) => {
   const topoffset = -200
   const leftoffset = 120
   tooltipEl.style.opacity = 1;
-  tooltipEl.style.left = leftoffset + positionX + tooltip.caretX + 'px';
-  tooltipEl.style.top = topoffset + positionY + tooltip.caretY + 'px';
+  const canvasWidth = chart.canvas.offsetWidth;
+  const canvasCenter = canvasWidth / 2;
+
+  // 计算tooltip的中心位置
+  const tooltipX = tooltip.caretX;
+
+  // 根据tooltip的位置决定偏移量
+  const xOffset = tooltipX < canvasCenter ? leftoffset : -leftoffset; // 若在左侧则向右偏移，反之向左偏移
+
+  // 计算并设置tooltip位置
+  tooltipEl.style.left = positionX + tooltipX + xOffset + 'px';
+  tooltipEl.style.top = positionY + tooltip.caretY + topoffset + 'px';
   tooltipEl.style.font = tooltip.options.bodyFont.string;
   tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
 };
