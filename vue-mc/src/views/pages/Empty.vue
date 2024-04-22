@@ -20,15 +20,18 @@ watch(isSubmit, (newValue) => {
 });
 
 const sendMessage = () => {
+  isSubmit.value = true;
   axios.post("/predict", {
     smiles_or_inchi_or_file: smiles_or_inchi_or_file.value,
     AdductType: AdductType_dropdownItem.value.code
   })
     .then((res) => {
       msg.value = res.data.result
+      isSubmit.value = false;
     })
     .catch((error) => {
       console.error(error.response.data);
+      isSubmit.value = false;
     });
 };
 
@@ -39,9 +42,9 @@ const sendMessage = () => {
   <h1>CFM-ID</h1>
   <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
   <ProgressBar v-if="isSubmit" />
-  <Bar v-if="isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
-  <Bar v-if="isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
-  <Bar v-if="isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
-  <List_results v-if="isSubmit && msg && msg.fragment" :energyData="msg.fragment" />
+  <Bar v-if="!isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
+  <Bar v-if="!isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />
+  <Bar v-if="!isSubmit && msg && msg.energy2" :energyData="msg.energy2" :Energy_level="'High Energy'" />
+  <List_results v-if="!isSubmit && msg && msg.fragment" :energyData="msg.fragment" />
 
 </template>

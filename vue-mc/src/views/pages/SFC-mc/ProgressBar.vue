@@ -7,8 +7,8 @@ let interval = null;
 const startProgress = () => {
     interval = setInterval(() => {
         let newValue = value.value + Math.floor(Math.random() * 10) + 1;
-        if (newValue >= 100) {
-            newValue = 100;
+        if (newValue >= 90) {
+            newValue = 90;
         }
         value.value = newValue;
     }, 2000);
