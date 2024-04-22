@@ -15,117 +15,64 @@ const props = defineProps({
     }
 });
 
-
 const getOrCreateTooltip = (chart) => {
-  let tooltipEl = chart.canvas.parentNode.querySelector('div');
+    let tooltipEl = chart.canvas.parentNode.querySelector('div');
 
-  if (!tooltipEl) {
-    tooltipEl = document.createElement('div');
-    tooltipEl.style.background = 'rgba(0, 0, 0, 0)';
-    tooltipEl.style.borderRadius = '3px';
-    tooltipEl.style.color = 'white';
-    tooltipEl.style.opacity = 1;
-    tooltipEl.style.pointerEvents = 'none';
-    tooltipEl.style.position = 'absolute';
-    tooltipEl.style.transform = 'translate(-50%, 0)';
-    tooltipEl.style.transition = 'all .1s ease';
+    if (!tooltipEl) {
+        tooltipEl = document.createElement('div');
+        tooltipEl.style.opacity = 0;
+        tooltipEl.style.position = 'absolute';
+        tooltipEl.style.pointerEvents = 'none';
+        tooltipEl.style.transition = 'all .1s ease';
 
-    const table = document.createElement('table');
-    table.style.margin = '0px';
+        chart.canvas.parentNode.appendChild(tooltipEl);
+    }
 
-    tooltipEl.appendChild(table);
-    chart.canvas.parentNode.appendChild(tooltipEl);
-  }
-
-  return tooltipEl;
+    return tooltipEl;
 };
 
 const externalTooltipHandler = (context) => {
     const { chart, tooltip } = context;
-  const tooltipEl = getOrCreateTooltip(chart);
+    const tooltipEl = getOrCreateTooltip(chart);
 
-  // Hide if no tooltip
-  if (tooltip.opacity === 0) {
-    tooltipEl.style.opacity = 0;
-    return;
-  }
-
-   let tooltipMolecule = ''; 
-
-   if (tooltip.dataPoints && tooltip.dataPoints.length) {
-    const dataPoint = tooltip.dataPoints[0];
-    const mzValue = dataPoint.label; 
-
-    tooltipMolecule = props.energyData[mzValue][1][1]; // Now it is safe to set the molecule data
-}
-
-  const RDKitApp = createApp({
-    render() {
-      return h(RDKit, { molecules: tooltipMolecule }); 
-    },
-  });
-
-  const rdkitContainer = document.createElement('div');
-  RDKitApp.mount(rdkitContainer);
-
-  // Set Text
-  if (tooltip.body) {
-    const titleLines = tooltip.title || [];
-    const bodyLines = tooltip.body.map(b => b.lines);
-
-    const tableHead = document.createElement('thead');
-
-    titleLines.forEach(title => {
-      // ...
-    });
-
-    const tableBody = document.createElement('tbody');
-    bodyLines.forEach((body, i) => {
-      // ...
-    });
-
-    const rdkitWrapperTr = document.createElement('tr');
-    const rdkitWrapperTd = document.createElement('td');
-    rdkitWrapperTd.colSpan = '2'; 
-    rdkitWrapperTd.appendChild(rdkitContainer); 
-    rdkitWrapperTr.appendChild(rdkitWrapperTd);
-    tableBody.appendChild(rdkitWrapperTr);
-
-    const tableRoot = tooltipEl.querySelector('table');
-
-    // Remove old children
-    while (tableRoot.firstChild) {
-      tableRoot.firstChild.remove();
+    if (tooltip.opacity === 0) {
+        tooltipEl.style.opacity = 0;
+        return;
+    }
+  
+    let tooltipMolecule = '';
+    if (tooltip.dataPoints && tooltip.dataPoints.length) {
+        const dataPoint = tooltip.dataPoints[0];
+        const mzValue = dataPoint.label;
+        tooltipMolecule = props.energyData[mzValue][1][1];
     }
 
-    // Add new children
-    tableRoot.appendChild(tableHead);
-    tableRoot.appendChild(tableBody);
-  }
+    const RDKitApp = createApp({
+        render() {
+            return h(RDKit, { molecules: tooltipMolecule });
+        },
+    });
 
-  const {offsetLeft: positionX, offsetTop: positionY} = chart.canvas;
+    const rdkitContainer = document.createElement('div');
+    RDKitApp.mount(rdkitContainer);
 
-  // Display, position, and set styles for font
+    tooltipEl.innerHTML = '';
+    tooltipEl.appendChild(rdkitContainer);
 
-  const topoffset = -200
-  const leftoffset = 120
-  tooltipEl.style.opacity = 1;
-  const canvasWidth = chart.canvas.offsetWidth;
-  const canvasCenter = canvasWidth / 2;
+    const { offsetLeft: positionX, offsetTop: positionY } = chart.canvas;
 
-  // 计算tooltip的中心位置
-  const tooltipX = tooltip.caretX;
+    tooltipEl.style.opacity = 1;
+    const canvasWidth = chart.canvas.offsetWidth;
+    const canvasCenter = canvasWidth / 2;
+    
+    const tooltipX = tooltip.caretX;
+    
+    const xOffset = tooltipX < canvasCenter ? 0 : -200; 
 
-  // 根据tooltip的位置决定偏移量
-  const xOffset = tooltipX < canvasCenter ? leftoffset : -leftoffset; // 若在左侧则向右偏移，反之向左偏移
-
-  // 计算并设置tooltip位置
-  tooltipEl.style.left = positionX + tooltipX + xOffset + 'px';
-  tooltipEl.style.top = positionY + tooltip.caretY + topoffset + 'px';
-  tooltipEl.style.font = tooltip.options.bodyFont.string;
-  tooltipEl.style.padding = tooltip.options.padding + 'px ' + tooltip.options.padding + 'px';
+    tooltipEl.style.left = positionX + tooltipX + xOffset + 'px';
+    tooltipEl.style.top = positionY + tooltip.caretY - 200 + 'px'; 
+    tooltipEl.style.pointerEvents = 'none'; 
 };
-
 
 const { layoutConfig } = useLayout();
 let documentStyle = getComputedStyle(document.documentElement);
@@ -166,7 +113,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: false, 
+                enabled: true, 
                 external: externalTooltipHandler,
                 position: 'nearest'
             },

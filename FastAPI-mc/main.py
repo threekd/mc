@@ -49,7 +49,7 @@ def output_to_json(output_str:str):
         return(output_dict)
 
 
-def predict(predict_parameter):
+def run_docker(predict_parameter):
     client = docker.from_env()
 
     param_file = f'/trained_models_cfmid4.0/{predict_parameter.AdductType}/param_output.log'
@@ -68,9 +68,12 @@ class Input_item(BaseModel):
     AdductType: str
 
 app = FastAPI()
+origins = [
+    "http://localhost:5173"
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://139.180.204.195:5173/pages/empty"],
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -78,5 +81,5 @@ app.add_middleware(
 
 @app.post("/predict")
 async def calculate(predict_parameter: Input_item):
-    result = predict(predict_parameter)
+    result = run_docker(predict_parameter)
     return {"result": result}
