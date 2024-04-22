@@ -104,8 +104,9 @@ const setChart = () => {
                 backgroundColor: documentStyle.getPropertyValue('--primary-500'),
                 borderColor: documentStyle.getPropertyValue('--primary-500'),
                 data: intensityValues,
-                //barPercentage: 1,
-                //categoryPercentage: 1
+                barThickness: 7,
+                //barPercentage: 0.7
+                //categoryPercentage: 0.6
             }
         ]
     };
@@ -113,7 +114,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: true, 
+                enabled: false, 
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
@@ -132,7 +133,7 @@ const setChart = () => {
                 //max: 200, 
                
                 ticks: {
-                    //stepSize: 10,
+                    stepSize: 10,
                     color: textColorSecondary,
                     font: {
                         weight: 500
