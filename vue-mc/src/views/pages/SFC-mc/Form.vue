@@ -5,16 +5,9 @@ const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ type:Str
 const isSubmit = defineModel('isSubmit',{ default: false })
 const AdductType_dropdownItem = defineModel('AdductType_dropdownItem',{ type:Object, default: { name: '[M+H]+', code: '[M+H]+' } })
 const SpectraType_dropdownItem = defineModel('SpectraType_dropdownItem',{ type:Object, default: { name: 'ESI', code: 'ESI' } })
-const Example = defineModel('Example',{ type:String, default: '' })
 
 const SpectraType_dropdownItems = ref([
     { name: 'ESI', code: 'ESI' },
-]);
-
-const Examples = ref([
-    { name: 'Example1', code: 'InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3' },
-    { name: 'Example2', code: 'CNCCC1=CNC2=CC=CC=C21' },
-    { name: 'Example3', code: 'CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)N[C@H](C)CO' }
 ]);
 
 const AdductType_dropdownItems = ref([
@@ -23,10 +16,10 @@ const AdductType_dropdownItems = ref([
 ]);
 
 const clearCompoundString = () => {
-    smiles_or_inchi_or_file.value = ''; // Clear the value
+    smiles_or_inchi_or_file.value = ''; 
 }
 const submitCompoundString = () => {
-    isSubmit.value = true; // Clear the value
+    isSubmit.value = true; 
 }
 </script>
 
@@ -62,13 +55,6 @@ const submitCompoundString = () => {
                             <Dropdown id="AdductType" v-model="AdductType_dropdownItem"
                                 :options="AdductType_dropdownItems" optionLabel="name" placeholder="[M+H]+"></Dropdown>
                         </div>
-                        <!-- to be delete
-                        <div class="field col-12 md:col-2">
-                            <label for="Example">Examples</label>
-                            <Dropdown id="Example" v-model="Example" :options="Examples"
-                                optionLabel="name" placeholder="Select one to try"></Dropdown>
-                        </div>
-                        -->
                     </div>
                 </div>
                 <div class="card">

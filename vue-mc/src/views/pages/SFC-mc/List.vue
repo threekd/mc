@@ -1,8 +1,6 @@
 <script setup>
 import { ref, computed, watch } from 'vue'
 import RDKit from './RDKit-SVG.vue'
-import Energy_data_json from '../data/energy_data.json'
-// 引入 lodash 的 orderBy 函数用于排序
 import { orderBy } from 'lodash-es'
 
 const props = defineProps({
@@ -77,11 +75,11 @@ watch([sortOrder, sortField], () => {
                                     <div class="pt-4">
                                         <div class="flex flex-row justify-content-between align-items-start gap-2">
                                             <div>
-                                                <div class="text-lg font-medium text-900 mt-1">{{ item.mass }}</div>
+                                                <div class="text-lg font-medium text-teal-400 mt-1">{{ item.mass }}</div>
                                             </div>
                                         </div>
                                         <div class="flex flex-column gap-4 mt-4">
-                                            <span class="text-2xl font-semibold text-900">{{ item.SMILES }}</span>
+                                            <span class="text-xl font-semibold text-cyan-500">{{ item.SMILES }}</span>
                                         </div>
                                     </div>
                                 </div>

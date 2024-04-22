@@ -67,10 +67,10 @@ const externalTooltipHandler = (context) => {
     
     const tooltipX = tooltip.caretX;
     
-    const xOffset = tooltipX < canvasCenter ? 0 : -200; 
+    const xOffset = tooltipX < canvasCenter ? 0 : -250; 
 
     tooltipEl.style.left = positionX + tooltipX + xOffset + 'px';
-    tooltipEl.style.top = positionY + tooltip.caretY - 200 + 'px'; 
+    tooltipEl.style.top = positionY + tooltip.caretY - 180 + 'px'; 
     tooltipEl.style.pointerEvents = 'none'; 
 };
 
