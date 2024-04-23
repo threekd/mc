@@ -18,6 +18,9 @@ const AdductType_dropdownItems = ref([
 const clearCompoundString = () => {
     smiles_or_inchi_or_file.value = ''; 
 }
+const drawCompoundString = () => {
+//
+}
 const submitCompoundString = () => {
     isSubmit.value = true; 
 }
@@ -32,8 +35,8 @@ const submitCompoundString = () => {
                     <div class="field col-12 md:col-12">
                         <label for="Parent_Compound_Structure">Parent Compound Structure</label>
                         <InputGroup>
-                            <InputGroupAddon @click="clearCompoundString">
-                                <div class="flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
+                            <InputGroupAddon @click="drawCompoundString">
+                                <div class="p-link flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
                                     <i class="pi pi-pencil text-orange-500 text-xl"></i>
                                 </div>
                             </InputGroupAddon>
