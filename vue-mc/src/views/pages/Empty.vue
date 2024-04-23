@@ -1,17 +1,15 @@
 <script setup>
+import { ref, watch } from 'vue'
+import axios from 'axios'
 import Bar from './SFC-mc/Bar.vue'
 import Form from './SFC-mc/Form.vue'
 import ProgressBar from './SFC-mc/ProgressBar.vue'
 import List_results from './SFC-mc/List.vue'
-import axios from 'axios'
-import { ref } from 'vue'
 
 const smiles_or_inchi_or_file = ref('')
 const AdductType_dropdownItem = ref({ name: '[M+H]+', code: '[M+H]+' })
 const isSubmit = ref(false)
 const msg = ref(null)
-
-import { watch } from 'vue'
 
 watch(isSubmit, (newValue) => {
   if (newValue) {
