@@ -19,6 +19,7 @@ onMounted(() => {
 });
 
 function initJsme() {
+
   if (!jsmeContainer.value) {
     return;
   }
@@ -27,6 +28,8 @@ function initJsme() {
   jsmeContainer.value.id = id;
   jsmeApplet = new JSApplet.JSME(id, "100%", "100%", {
     options: "fullScreenIcon,query,hydrogens",
+    "guicolor": "#FFE082",
+    "guiAtomColor": "#000000"
   });
 
   // 监听结构改变事件来更新SMILES

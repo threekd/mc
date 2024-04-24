@@ -18,8 +18,8 @@ const close = () => {
         <div class="col-12 lg:col-6">
             <div class="card p-fluid">
                 <h5>Dialog</h5>
-                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :style="{ height: '75vh', width: '40vw' }" :modal="true">
-                    <div style="width: 37vw; height: 50vh;">
+                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
+                    <div  class="responsive-container">
                         <JSME />
                     </div>
                     <template #footer>
@@ -31,3 +31,16 @@ const close = () => {
         </div>
     </div>
 </template>
+
+<style scoped>
+.responsive-container {
+    width: 37vw;
+    height: 50vh;
+}
+
+@media (max-width: 960px) {
+    .responsive-container {
+        width: 60vw;
+    }
+}
+</style>
