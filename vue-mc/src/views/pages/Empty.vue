@@ -5,7 +5,6 @@ import Bar from './SFC-mc/Bar.vue'
 import Form from './SFC-mc/Form.vue'
 import ProgressBar from './SFC-mc/ProgressBar.vue'
 import List_results from './SFC-mc/List.vue'
-import Dialog from './SFC-mc/Dialog.vue'
 
 const smiles_or_inchi_or_file = ref('')
 const AdductType_dropdownItem = ref({ name: '[M+H]+', code: '[M+H]+' })
@@ -37,7 +36,6 @@ const sendMessage = () => {
 </script>
 
 <template>
-  <Dialog />
   <h1>CFM-ID</h1>
   <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
   <ProgressBar v-if="isSubmit" />

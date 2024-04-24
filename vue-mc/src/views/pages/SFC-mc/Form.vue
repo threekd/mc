@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from 'vue';
+import JSME from './JSME.vue'
 
 const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ type:String, default: '' })
 const isSubmit = defineModel('isSubmit',{ default: false })
@@ -24,12 +25,28 @@ const drawCompoundString = () => {
 const submitCompoundString = () => {
     isSubmit.value = true; 
 }
+const display = ref(false);
+const open = () => {
+    display.value = true;
+};
+const close = () => {
+    display.value = false;
+};
 </script>
 
 <template>
     <div class="grid">
         <div class="col-12">
             <div class="card">
+                <h5>Dialog</h5>
+                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
+                    <div  class="responsive-container">
+                        <JSME />
+                    </div>
+                    <template #footer>
+                        <Button label="Ok" @click="close" icon="pi pi-check" class="p-button-outlined" />
+                    </template>
+                </Dialog>
                 <h4>Spectra Prediction</h4>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-12">
@@ -37,7 +54,7 @@ const submitCompoundString = () => {
                         <InputGroup>
                             <InputGroupAddon @click="drawCompoundString">
                                 <div class="p-link flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
-                                    <i class="pi pi-pencil text-orange-500 text-xl"></i>
+                                    <i class="pi pi-pencil text-orange-500 text-xl" @click="open"></i>
                                 </div>
                             </InputGroupAddon>
                             <InputText v-model="smiles_or_inchi_or_file" id="Parent_Compound_Structure" type="text"
@@ -79,3 +96,16 @@ const submitCompoundString = () => {
         </div>
     </div>
 </template>
+
+<style scoped>
+.responsive-container {
+    width: 37vw;
+    height: 50vh;
+}
+
+@media (max-width: 960px) {
+    .responsive-container {
+        width: 60vw;
+    }
+}
+</style>

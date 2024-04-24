@@ -1,6 +1,6 @@
 <template>
   <div ref="jsmeContainer" style="width: 100%; height: 100%;"></div>
-  <pre>{{ smiles }}</pre>
+
 </template>
 
 <script setup>
