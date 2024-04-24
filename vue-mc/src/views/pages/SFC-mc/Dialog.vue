@@ -18,7 +18,7 @@ const close = () => {
         <div class="col-12 lg:col-6">
             <div class="card p-fluid">
                 <h5>Dialog</h5>
-                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :style="{ width: '30vw' }" :modal="true">
+                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :style="{ width: '40vw' }" :modal="true">
                     <div>
                         <JSME />
                     </div>

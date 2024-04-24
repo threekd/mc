@@ -20,11 +20,12 @@
           '-webkit-transform': 'translate(-50%, -50%)',
         }"
       >
-<!--        JSME is loading, or JS is disabled-->
+
       </div>
     </div>
     <div>
       <div v-if="jsmeIsLoadedInternal">
+        <pre>{{ smiles }}</pre>
         <div
             style="
             width: 100%;
@@ -45,7 +46,8 @@ export default {
     return {
       finalSrc: "/public/jsme/jsme.nocache.js",
       jsmeIsLoadedInternal: false,
-      JSA: null
+      JSA: null,
+      smiles: "", 
     }
   },
   props: {
@@ -73,6 +75,7 @@ export default {
       JSA.readGenericMolecularInput(this.modelValue);
       JSA.setCallBack("AfterStructureModified", (e) => {
         const newSmiles = e.src.smiles();
+        this.smiles = newSmiles;
         this.updateValue(newSmiles);
         if (this.onChange) {
           this.onChange(newSmiles);
@@ -86,6 +89,8 @@ export default {
     modelValue: function (newValue, oldValue) {
       console.log(oldValue)
       this.JSA.readGenericMolecularInput(newValue);
+      const newSmiles = this.JSA.smiles();
+      this.smiles = newSmiles;
     }
   },
   methods: {
