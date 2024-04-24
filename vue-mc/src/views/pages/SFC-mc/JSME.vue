@@ -1,13 +1,8 @@
-<template>
-  <div ref="jsmeContainer" style="width: 100%; height: 100%;"></div>
-
-</template>
-
 <script setup>
 import { onMounted, ref } from 'vue';
 
 const jsmeContainer = ref(null);
-const smiles = ref('');
+const SMILES = ref('');
 let jsmeApplet;
 
 onMounted(() => {
@@ -31,13 +26,14 @@ function initJsme() {
     "guicolor": "#FFE082",
     "guiAtomColor": "#000000"
   });
-
-  // 监听结构改变事件来更新SMILES
-  jsmeApplet.setAfterStructureModifiedCallback(getSmilesFromJSME);
+  jsmeApplet.setAfterStructureModifiedCallback(getSMILESFromJSME);
 }
 
-function getSmilesFromJSME() {
-  // 获取SMILES字符串并更新响应式属性
-  smiles.value = jsmeApplet.smiles();
+function getSMILESFromJSME() {
+  SMILES.value = jsmeApplet.smiles();
 }
 </script>
+
+<template>
+  <div ref="jsmeContainer" style="width: 100%; height: 100%;"></div>
+</template>
