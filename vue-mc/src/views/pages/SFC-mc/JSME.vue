@@ -1,108 +1,66 @@
 <template>
   <div>
     <div
-        :style="{
+      :style="{
         width: width,
         height: height,
-        outline: jsmeIsLoadedInternal ? '' : '1px solid black',
+        outline: jsmeIsLoaded ? '' : '1px solid black',
         outlineOffset: '-.5px',
         textAlign: 'center',
       }"
     >
-      <div :id="id"></div>
-      <div
-          v-if="!jsmeIsLoadedInternal"
-          :style="{
-          position: 'absolute',
-          top: '50%',
-          left: '50%',
-          transform: 'translate(-50%, -50%)',
-          '-webkit-transform': 'translate(-50%, -50%)',
-        }"
-      >
-
-      </div>
+      <div :id="jsmeId"></div>
     </div>
-    <div>
-      <div v-if="jsmeIsLoadedInternal">
-        <pre>{{ smiles }}</pre>
-        <div
-            style="
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            flex-wrap: nowrap;
-          "
-        >
-        </div>
-      </div>
+    <div v-if="jsmeIsLoaded">
+      <pre>{{ smiles }}</pre>
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      finalSrc: "/public/jsme/jsme.nocache.js",
-      jsmeIsLoadedInternal: false,
-      JSA: null,
-      smiles: "", 
-    }
-  },
-  props: {
-    width: {type: String, default: "800px"},
-    height: {type: String, default: "500px"},
-    id: {type: String, default: "JME" + Math.random()},
-    options: {type: String, default: "fullScreenIcon"},
-    onChange: {type: Function, required: false},
-    src: {type: String, default: ""},
-    border: {type: String, default: "5px solid black"},
-    code: {type: String, default: "JME.class"},
-    name: {type: String, default: "JME" + Math.random()},
-    archive: {type: String, default: "JME.jar"},
-    modelValue: {type: String, default: ""},
-  },
-  created() {
-    const newScript = document.createElement("script");
-    newScript.type = "text/javascript";
-    newScript.src = this.src ? this.src : this.finalSrc;
-    document.head.appendChild(newScript);
-    window.jsmeOnLoad = () => {
-      let JSA = new window.JSApplet.JSME(this.id,this.width,  this.height, {
-        "options" : this.options
-      });
-      JSA.readGenericMolecularInput(this.modelValue);
-      JSA.setCallBack("AfterStructureModified", (e) => {
-        const newSmiles = e.src.smiles();
-        this.smiles = newSmiles;
-        this.updateValue(newSmiles);
-        if (this.onChange) {
-          this.onChange(newSmiles);
-        }
-      });
-      this.JSA = JSA;
-      this.jsmeIsLoadedInternal = true;
-    };
-  },
-  watch: {
-    modelValue: function (newValue, oldValue) {
-      console.log(oldValue)
-      this.JSA.readGenericMolecularInput(newValue);
-      const newSmiles = this.JSA.smiles();
-      this.smiles = newSmiles;
-    }
-  },
-  methods: {
-    updateValue(inboundValue) {
-      let value = "";
-      if (!!inboundValue && inboundValue instanceof Event) {
-        value = inboundValue.target;
-      } else {
-        value = inboundValue;
-      }
-      this.$emit("updateValue", value);
-    }
+<script setup>
+import { ref, onMounted } from 'vue';
+
+const props = defineProps({
+  width: { type: String, default: '800px' },
+  height: { type: String, default: '500px' },
+  options: { type: String, default: 'fullScreenIcon' },
+  onChange: { type: Function, required: false },
+  src: { type: String, default: '/public/jsme/jsme.nocache.js' },
+  modelValue: { type: String, default: '' },
+});
+
+const emit = defineEmits(['update:modelValue']);
+const jsmeId = 'JME' + Math.random().toString(36).substr(2, 9);
+const jsmeIsLoaded = ref(false);
+const smiles = ref(props.modelValue);
+
+const loadJsme = () => {
+  const newScript = document.createElement('script');
+  newScript.type = 'text/javascript';
+  newScript.src = props.src;
+  newScript.onload = initJsme;
+  document.head.appendChild(newScript);
+};
+
+const initJsme = () => {
+  const jsme = new window.JSApplet.JSME(jsmeId, props.width, props.height, {
+    options: props.options,
+  });
+  jsme.readGenericMolecularInput(props.modelValue);
+  jsme.setCallBack('AfterStructureModified', (e) => {
+    const newSmiles = e.src.smiles();
+    smiles.value = newSmiles;
+    emit('update:modelValue', newSmiles);
+    props.onChange?.(newSmiles);
+  });
+  jsmeIsLoaded.value = true;
+};
+
+onMounted(() => {
+  if (window.JSApplet) {
+    initJsme();
+  } else {
+    loadJsme();
   }
-}
+});
 </script>
