@@ -53,8 +53,8 @@ const close = () => {
                         <label for="Parent_Compound_Structure">Parent Compound Structure</label>
                         <InputGroup>
                             <InputGroupAddon @click="drawCompoundString">
-                                <div class="p-link flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
-                                    <i class="pi pi-pencil text-orange-500 text-xl" @click="open"></i>
+                                <div @click="open" class="p-link flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
+                                    <i class="pi pi-pencil text-orange-500 text-xl"></i>
                                 </div>
                             </InputGroupAddon>
                             <InputText v-model="smiles_or_inchi_or_file" id="Parent_Compound_Structure" type="text"
