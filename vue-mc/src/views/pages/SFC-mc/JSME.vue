@@ -33,17 +33,6 @@
             flex-wrap: nowrap;
           "
         >
-<!--          <span>Smiles:</span>-->
-<!--          <div style="width: 100%">-->
-<!--            <input-->
-<!--                type="text"-->
-<!--                placeholder="Enter Smiles"-->
-<!--                style="width: 98%"-->
-<!--                :value="modelValue"-->
-<!--                v-on:input="(e) => updateValue(e)"-->
-<!--                v-on:change="(e) => updateValue(e)"-->
-<!--            />-->
-<!--          </div>-->
         </div>
       </div>
     </div>
@@ -63,7 +52,7 @@ export default {
     width: {type: String, default: "800px"},
     height: {type: String, default: "500px"},
     id: {type: String, default: "JME" + Math.random()},
-    options: {type: String, default: ""},
+    options: {type: String, default: "fullScreenIcon"},
     onChange: {type: Function, required: false},
     src: {type: String, default: ""},
     border: {type: String, default: "5px solid black"},
