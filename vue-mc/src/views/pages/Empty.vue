@@ -38,7 +38,6 @@ const sendMessage = () => {
 
 <template>
   <Dialog />
-<JSME />
   <h1>CFM-ID</h1>
   <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
   <ProgressBar v-if="isSubmit" />
