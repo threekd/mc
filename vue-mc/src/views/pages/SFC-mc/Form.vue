@@ -32,6 +32,14 @@ const open = () => {
 const close = () => {
     display.value = false;
 };
+// 使用ref来创建一个响应式的分子SMILES字符串
+const moleculeSmiles = ref('');
+
+// 方法用于处理SMILES字符串的改变
+const handleSmilesChange = (newSmiles) => {
+  // 更新分子的SMILES字符串
+  moleculeSmiles.value = newSmiles;
+};
 </script>
 
 <template>
@@ -41,9 +49,12 @@ const close = () => {
                 <h5>Dialog</h5>
                 <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
                     <div  class="responsive-container">
-                        <JSME />
+                        <JSME :width="'100%'" :modelValue="moleculeSmiles" @update:modelValue="handleSmilesChange"/>
                     </div>
                     <template #footer>
+                        <div class="flex flex-column gap-2 mt-2">
+                            <span class="text-xl font-semibold text-cyan-500">{{ moleculeSmiles }}</span>
+                        </div>
                         <Button label="Ok" @click="close" icon="pi pi-check" class="p-button-outlined" />
                     </template>
                 </Dialog>
