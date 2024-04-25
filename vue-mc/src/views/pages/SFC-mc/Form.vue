@@ -52,8 +52,7 @@ const confirmSmiles = () => {
     <div class="grid">
         <div class="col-12">
             <div class="card">
-                <h5>Dialog</h5>
-                <Dialog header="Dialog" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
+                <Dialog header="JSME Molecule Editor" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
                     <div  class="responsive-container">
                         <JSME :width="'100%'" :modelValue="moleculeSmiles" @update:modelValue="handleSmilesChange"/>
                     </div>
@@ -102,7 +101,6 @@ const confirmSmiles = () => {
                 <div class="card">
                     <div class="p-fluid formgrid grid">
                         <div class="field col-12 md:col-12">
-                            <label>InChI=1S/C11H14N2/c1-12-7-6-9-8-13-11-5-3-2-4-10(9)11/h2-5,8,12-13H,6-7H2,1H3</label>
                         </div>
                         <div class="field col-12 md:col-2">
                             <Button @click="submitCompoundString" label="Submit" v-model="isSubmit" class="mr-2 mb-2"></Button>
