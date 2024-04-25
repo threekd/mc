@@ -10,7 +10,7 @@ const smiles_or_inchi_or_file = ref('')
 const AdductType_dropdownItem = ref({ name: '[M+H]+', code: '[M+H]+' })
 const isSubmit = ref(false)
 const msg = ref(null)
-
+const confirm = ref('')
 watch(isSubmit, (newValue) => {
   if (newValue) {
     sendMessage();
@@ -37,7 +37,7 @@ const sendMessage = () => {
 
 <template>
   <h1>CFM-ID</h1>
-  <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" />
+  <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" @confirm="(msg) => smiles_or_inchi_or_file = msg"/>
   <ProgressBar v-if="isSubmit" />
   <Bar v-if="!isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />
   <Bar v-if="!isSubmit && msg && msg.energy1" :energyData="msg.energy1" :Energy_level="'Middle Energy'" />

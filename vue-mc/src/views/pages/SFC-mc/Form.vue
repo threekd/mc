@@ -40,6 +40,12 @@ const handleSmilesChange = (newSmiles) => {
   // 更新分子的SMILES字符串
   moleculeSmiles.value = newSmiles;
 };
+const emit = defineEmits(['update', 'confirm']);
+const confirmSmiles = () => {
+  // 使用自定义事件 'confirm' 将 SMILES 字符串传递给父组件
+  emit('confirm', moleculeSmiles.value);
+  close(); // 关闭弹窗
+};
 </script>
 
 <template>
@@ -55,7 +61,7 @@ const handleSmilesChange = (newSmiles) => {
                         <div class="flex flex-column gap-2 mt-2">
                             <span class="text-xl font-semibold text-cyan-500">{{ moleculeSmiles }}</span>
                         </div>
-                        <Button label="Ok" @click="close" icon="pi pi-check" class="p-button-outlined" />
+                        <Button label="Ok" @click="confirmSmiles" icon="pi pi-check" class="p-button-outlined" />
                     </template>
                 </Dialog>
                 <h4>Spectra Prediction</h4>
