@@ -21,7 +21,7 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 // 定义组件的props
 const props = defineProps({
   width: { type: String, default: '' },
-  height: { type: String, default: '500px' },
+  height: { type: String, default: '"100%"' },
   onChange: { type: Function, default: () => {} },
   src: { type: String, default: '/public/jsme/jsme.nocache.js' },
   modelValue: { type: String, default: '' },

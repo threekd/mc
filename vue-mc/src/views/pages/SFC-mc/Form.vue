@@ -54,7 +54,7 @@ const confirmSmiles = () => {
             <div class="card">
                 <Dialog header="JSME Molecule Editor" v-model:visible="display" :breakpoints="{ '960px': '75vw' }" :modal="true">
                     <div  class="responsive-container">
-                        <JSME :width="'100%'" :modelValue="moleculeSmiles" @update:modelValue="handleSmilesChange"/>
+                        <JSME :width="'100%'" :height="'50vh' ":modelValue="moleculeSmiles" @update:modelValue="handleSmilesChange"/>
                     </div>
                     <template #footer>
                         <div class="flex flex-column gap-2 mt-2">
