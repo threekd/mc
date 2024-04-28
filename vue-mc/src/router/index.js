@@ -15,11 +15,11 @@ const router = createRouter({
                 },
                 {
                     path: '/cfmid',
-                    name: 'empty',
-                    component: () => import('@/views/pages/Empty.vue')
-                },
+                    name: 'cfmid',
+                    component: () => import('@/views/pages/CFMID.vue')
+                }
             ]
-        },
+        }
     ]
 });
 
