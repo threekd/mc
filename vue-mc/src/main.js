@@ -224,7 +224,7 @@ app.component('VirtualScroller', VirtualScroller);
 import axios from 'axios'
 axios.defaults.withCredentials = true
 //axios.defaults.baseURL = 'http://localhost:8001'
-axios.defaults.baseURL = 'http://139.180.204.195:8001'
+axios.defaults.baseURL = 'https://aptc.cc:8001'
 
 
 app.mount('#app');
