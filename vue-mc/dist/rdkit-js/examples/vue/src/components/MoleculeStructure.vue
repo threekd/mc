@@ -26,7 +26,8 @@
 </template>
 
 <script setup lang="ts">
-import { nextTick, onMounted, onUpdated, reactive, ref, watch } from "vue";
+import { nextTick, onMounted, onUnmounted, onUpdated, reactive, ref, watch } from "vue";
+
 import { JSMol } from "../../../../typescript";
 import initRDKit from "../utils/initRDKit";
 
@@ -73,6 +74,56 @@ const props = defineProps({
     type: Number,
     default: undefined
   }
+});
+
+// Refs for SVG and Canvas containers
+const svgContainer = ref(null);
+const canvasContainer = ref(null);
+
+/**
+ * Automatically adjust width and height based on parent container size
+ */
+function autoAdjustSize() {
+  if (props.svgMode && svgContainer.value) {
+    molDetails.width = svgContainer.value.clientWidth;
+    molDetails.height = svgContainer.value.clientHeight;
+  } else if (!props.svgMode && canvasContainer.value) {
+    molDetails.width = canvasContainer.value.clientWidth;
+    molDetails.height = canvasContainer.value.clientHeight;
+  }
+}
+
+/**
+ * Redraw molecule with adjusted sizes
+ */
+function redrawMolecule() {
+  autoAdjustSize();
+  drawSVGorCanvas();
+}
+
+// Load molecule on component mount
+onMounted(() => {
+  initRDKit()
+    .then(() => {
+      rdkitLoaded.value = true;
+      autoAdjustSize();
+      draw();
+    })
+    .catch((err) => {
+      console.error(err);
+      rdkitError.value = true;
+    });
+});
+
+// Watch for prop changes and redraw molecule
+watch(props, redrawMolecule);
+
+// Watch for window resize events and redraw molecule
+window.addEventListener('resize', redrawMolecule);
+
+// Cleanup resize event listener
+onUnmounted(() => {
+  window.removeEventListener('resize', redrawMolecule);
 });
 
 // RDKit state reporting values
@@ -226,5 +277,9 @@ watch(props, () => draw());
 <style>
 .molecule-structure-svg svg rect:first-of-type {
   fill: transparent !important;
+}
+.molecule-structure-svg svg {
+  width: 100%;
+  height: 100%;
 }
 </style>
