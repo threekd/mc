@@ -24,8 +24,8 @@ import { ref } from 'vue';
 
         <BlockViewer header="Hero" free>
             <div class="grid grid-nogutter surface-section text-800">
-                <div class="col-12 md:col-6 overflow-hidden">
-                    <img src="/demo/images/blocks/hero/hero-1.png" alt="Image" class="md:ml-auto block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%)" />
+                <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
+                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%) " />
                 </div>
                 <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
                     <section>
