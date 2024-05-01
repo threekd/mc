@@ -39,12 +39,15 @@ async function copyCode(event) {
 <template>
     <div class="block-section">
         <div class="block-header">
+
+        <div class="text-blue-600 font-bold mb-3"><i ></i>&nbsp;{{ header }}</div>
+        <!--
             <span class="block-title">
                 <span>{{ header }}</span>
                 <span class="badge-new" v-if="recent">New</span>
                 <span class="badge-free" v-if="free">Free</span>
             </span>
-        <!--
+        
             <div class="block-actions">
                 <a tabindex="0" :class="{ 'block-action-active': blockView === BlockView.PREVIEW }" @click="activateView($event, BlockView.PREVIEW)"><span>Preview</span></a>
                 <a :tabindex="'0'" :class="{ 'block-action-active': blockView === BlockView.CODE }" @click="activateView($event, BlockView.CODE)">
