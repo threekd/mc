@@ -12,7 +12,6 @@ import { ref } from 'vue';
                     <div class="text-900 font-bold text-5xl mb-3">Analytical Science AI</div>
                     <div class="text-700 text-2xl mb-5 text-left">
                         We are inspired by the ability of AI to help tackle the grand challenges in Analytical Science. At APTC, Our scientists and chemists are shedding new light on the frontiers of Chemistry through breakthroughs in machine learning, cloud infrastructure, and data processing and analytics. Together, our aim is to bring new technology and innovation to the analytical community.
-                        Explore how teams at APTC are using AI to accelerate scientific discovery.
                     </div>
                     <div class="text-700 text-2xl mb-5 text-left">
                         Explore how teams at APTC are using AI to accelerate scientific discovery.
