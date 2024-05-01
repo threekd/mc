@@ -21,7 +21,7 @@ import { ref } from 'vue';
             </div>
         </BlockViewer>
 
-        <BlockViewer header="Chem information">
+        <BlockViewer header="Chem information" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
                     <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%) " />
@@ -41,7 +41,7 @@ import { ref } from 'vue';
                 </div>
             </div>
         </BlockViewer>
-        <BlockViewer header="Data intelligent">
+        <BlockViewer header="Data intelligent" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
                     <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%) " />

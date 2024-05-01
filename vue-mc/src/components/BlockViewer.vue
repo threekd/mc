@@ -40,7 +40,9 @@ async function copyCode(event) {
     <div class="block-section">
         <div class="block-header">
 
-        <div class="text-blue-600 font-bold mb-3"><i ></i>&nbsp;{{ header }}</div>
+        <span class="block-title">
+            <span class="badge-free" v-if="free">{{ header }}</span>
+        </span>
         <!--
             <span class="block-title">
                 <span>{{ header }}</span>
