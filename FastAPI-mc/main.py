@@ -71,9 +71,6 @@ app = FastAPI()
 origins = [
     "http://localhost:5173",
     "http://localhost:4173"
-    "http://localhost:80",
-    "http://localhost:443",
-    "https://aptc.cc/"
 ]
 app.add_middleware(
     CORSMiddleware,
@@ -84,6 +81,6 @@ app.add_middleware(
 )
 
 @app.post("/predict")
-async def calculate(predict_parameter: Input_item):
+async def predict(predict_parameter: Input_item):
     result = run_docker(predict_parameter)
     return {"result": result}
