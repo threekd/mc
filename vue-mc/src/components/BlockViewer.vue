@@ -39,11 +39,17 @@ async function copyCode(event) {
 <template>
     <div class="block-section">
         <div class="block-header">
+
+        <span class="block-title">
+            <span class="badge-free" v-if="free">{{ header }}</span>
+        </span>
+        <!--
             <span class="block-title">
                 <span>{{ header }}</span>
                 <span class="badge-new" v-if="recent">New</span>
                 <span class="badge-free" v-if="free">Free</span>
             </span>
+        
             <div class="block-actions">
                 <a tabindex="0" :class="{ 'block-action-active': blockView === BlockView.PREVIEW }" @click="activateView($event, BlockView.PREVIEW)"><span>Preview</span></a>
                 <a :tabindex="'0'" :class="{ 'block-action-active': blockView === BlockView.CODE }" @click="activateView($event, BlockView.CODE)">
@@ -51,6 +57,7 @@ async function copyCode(event) {
                 </a>
                 <a :tabindex="0" class="block-action-copy" @click="copyCode($event)" v-tooltip.focus.bottom="{ value: 'Copied to clipboard' }"><i class="pi pi-copy"></i></a>
             </div>
+        -->
         </div>
         <div class="block-content">
             <div :class="containerClass" :style="previewStyle" v-if="blockView == BlockView.PREVIEW">

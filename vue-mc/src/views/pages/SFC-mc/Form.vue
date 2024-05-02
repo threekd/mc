@@ -74,7 +74,7 @@ const confirmSmiles = () => {
                                 </div>
                             </InputGroupAddon>
                             <InputText v-model="smiles_or_inchi_or_file" id="Parent_Compound_Structure" type="text"
-                                placeholder="Enter an InChI or SMILES string" />
+                                placeholder="Draw or Enter a SMILES string" />
                             <InputGroupAddon @click="clearCompoundString">
                                 <button @click="clearCompoundString" class="p-link layout-topbar-button">
                                     <i class="pi pi-eraser"></i>
