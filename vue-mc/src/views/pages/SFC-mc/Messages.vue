@@ -4,8 +4,6 @@ import { useToast } from 'primevue/usetoast';
 
 const toast = useToast();
 const message = ref([]);
-const username = ref(null);
-const email = ref(null);
 const count = ref(0);
 
 const addMessage = (type) => {
@@ -60,37 +58,6 @@ const showError = () => {
                 <transition-group name="p-message" tag="div">
                     <Message v-for="msg of message" :severity="msg.severity" :key="msg.content">{{ msg.content }}</Message>
                 </transition-group>
-            </div>
-        </div>
-
-        <div class="col-12 lg:col-8">
-            <div class="card">
-                <h5>Inline</h5>
-                <div class="field grid">
-                    <label for="username1" class="col-fixed w-9rem">Username</label>
-                    <div class="col">
-                        <InputText id="username1" v-model="username" :required="true" invalid class="mr-2"></InputText>
-                        <InlineMessage>Username is required</InlineMessage>
-                    </div>
-                </div>
-                <div class="field grid">
-                    <label for="email" class="col-fixed w-9rem">Email</label>
-                    <div class="col">
-                        <InputText id="email" v-model="email" :required="true" invalid class="mr-2"></InputText>
-                        <InlineMessage />
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-12 lg:col-4">
-            <div class="card">
-                <h5>Help Text</h5>
-                <div class="field p-fluid">
-                    <label for="username2">Username</label>
-                    <InputText id="username2" type="username" class="p-error" aria-describedby="username-help" />
-                    <small id="username-help" class="p-error">Enter your username to reset your password.</small>
-                </div>
             </div>
         </div>
     </div>

@@ -1,6 +1,39 @@
 <script setup>
 import { ref } from 'vue';
 import JSME from './JSME.vue'
+import { useToast } from 'primevue/usetoast';
+
+const toast = useToast();
+const message = ref([]);
+const count = ref(0);
+
+const addMessage = (type) => {
+    if (type === 'success') {
+        message.value = [{ severity: 'success', detail: 'Success Message', content: 'Message sent', id: count.value++ }];
+    } else if (type === 'info') {
+        message.value = [{ severity: 'info', detail: 'Info Message', content: 'PrimeVue rocks', id: count.value++ }];
+    } else if (type === 'warn') {
+        message.value = [{ severity: 'warn', detail: 'Warn Message', content: 'There are unsaved changes', id: count.value++ }];
+    } else if (type === 'error') {
+        message.value = [{ severity: 'error', detail: 'Error Message', content: 'SMILES is invalid', id: count.value++ }];
+    }
+};
+
+const showSuccess = () => {
+    toast.add({ severity: 'success', summary: 'Success Message', detail: 'Message Detail', life: 3000 });
+};
+
+const showInfo = () => {
+    toast.add({ severity: 'info', summary: 'Info Message', detail: 'Message Detail', life: 3000 });
+};
+
+const showWarn = () => {
+    toast.add({ severity: 'warn', summary: 'Warn Message', detail: 'Message Detail', life: 3000 });
+};
+
+const showError = () => {
+    toast.add({ severity: 'error', summary: 'Error Message', detail: 'Message Detail', life: 3000 });
+};
 
 const smiles_or_inchi_or_file = defineModel('smiles_or_inchi_or_file',{ type:String, default: '' })
 const isSubmit = defineModel('isSubmit',{ default: false })
@@ -23,7 +56,13 @@ const drawCompoundString = () => {
 //
 }
 const submitCompoundString = () => {
-    isSubmit.value = true; 
+    if (smiles_or_inchi_or_file.value === '')
+    {
+        addMessage('error')
+    }
+    else{
+        isSubmit.value = true; 
+    }
 }
 const display = ref(false);
 const open = () => {
@@ -32,19 +71,15 @@ const open = () => {
 const close = () => {
     display.value = false;
 };
-// 使用ref来创建一个响应式的分子SMILES字符串
-const moleculeSmiles = ref('');
 
-// 方法用于处理SMILES字符串的改变
+const moleculeSmiles = ref('');
 const handleSmilesChange = (newSmiles) => {
-  // 更新分子的SMILES字符串
   moleculeSmiles.value = newSmiles;
 };
 const emit = defineEmits(['update', 'confirm']);
 const confirmSmiles = () => {
-  // 使用自定义事件 'confirm' 将 SMILES 字符串传递给父组件
   emit('confirm', moleculeSmiles.value);
-  close(); // 关闭弹窗
+  close(); 
 };
 </script>
 
@@ -81,6 +116,9 @@ const confirmSmiles = () => {
                                 </button>  
                             </InputGroupAddon>                          
                         </InputGroup>
+                        <transition-group name="p-message" tag="div">
+                            <Message v-for="msg of message" :severity="msg.severity" :key="msg.content">{{ msg.content }}</Message>
+                        </transition-group>
                     </div>
                 </div>
                 <div class="card p-fluid">
