@@ -24,7 +24,7 @@ import { ref } from 'vue';
         <BlockViewer header="Chem information" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
-                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%) " />
+                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);" />
                 </div>
                 <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
                     <section>
@@ -44,7 +44,7 @@ import { ref } from 'vue';
         <BlockViewer header="Data intelligent" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
-                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(10% 0, 100% 0%, 90% 100%, 0 100%) " />
+                    <img src="/demo/images/blocks/hero/hero-2.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%) " />
                 </div>
                 <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
                     <section>
@@ -52,7 +52,7 @@ import { ref } from 'vue';
                             HRMS based Database and Data Intelligence
                         </div>
                         <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
-                            temp info.
+                            Importantly, our HRMS technology is complemented by a robust database. Different supplier has different database. What we are doing is integrating the databases together, so it is gonna be a one-stop tool for searching and matching the spectra.
                         </p>
                         <router-link to="/metfrag" class="layout-topbar-logo">
                             <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
