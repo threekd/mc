@@ -115,7 +115,7 @@ const setChart = () => {
 
         plugins: {
             tooltip: {
-                enabled: false, 
+                enabled: true, 
                 external: externalTooltipHandler,
                 position: 'nearest'
             },
