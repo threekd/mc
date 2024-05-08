@@ -50,7 +50,8 @@ const sendMessage = () => {
 </script>
 
 <template>
-  <h1>CFM-ID</h1>
+  <h1>IntelliSpectra</h1>
+
   <Form v-model:smiles_or_inchi_or_file="smiles_or_inchi_or_file" v-model:isSubmit="isSubmit" v-model:AdductType_dropdownItem="AdductType_dropdownItem" @confirm="(msg) => smiles_or_inchi_or_file = msg"/>
   <ProgressBar v-if="isSubmit" />
   <Bar v-if="!isSubmit && msg && msg.energy0" :energyData="msg.energy0" :Energy_level="'Low Energy'" />

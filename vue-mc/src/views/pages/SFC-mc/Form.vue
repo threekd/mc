@@ -77,7 +77,7 @@ const confirmSmiles = () => {
                 <h4>Spectra Prediction</h4>
                 <div class="p-fluid formgrid grid">
                     <div class="field col-12 md:col-12">
-                        <label for="Parent_Compound_Structure">Parent Compound Structure</label>
+                        <label for="Parent_Compound_Structure">Harnessing AI to revolutionize mass spectrometry predictions</label>
                         <InputGroup>
                             <InputGroupAddon @click="drawCompoundString">
                                 <div @click="open" class="p-link flex align-items-center justify-content-center bg-orange-100 border-round" style="width: 2.0rem; height: 2.0rem">
