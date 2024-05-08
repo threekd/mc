@@ -54,9 +54,9 @@ import { ref } from 'vue';
                         <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
                             Importantly, our HRMS technology is complemented by a robust database. Different supplier has different database. What we are doing is integrating the databases together, so it is gonna be a one-stop tool for searching and matching the spectra.
                         </p>
-                        <router-link to="/metfrag" class="layout-topbar-logo">
+                        <a href="http://52.131.247.115/metfrag" class="layout-topbar-logo" target="_blank">
                             <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
-                        </router-link>
+                        </a>
                     </section>
                 </div>
             </div>

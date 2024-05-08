@@ -80,7 +80,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.post("/predict")
+@app.post("fastapi/predict")
 async def predict(predict_parameter: Input_item):
     result = run_docker(predict_parameter)
     return {"result": result}
