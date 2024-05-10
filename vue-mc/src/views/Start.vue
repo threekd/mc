@@ -20,27 +20,6 @@ import { ref } from 'vue';
                 </div>
             </div>
         </BlockViewer>
-
-        <BlockViewer header="Chem information" free>
-            <div class="grid grid-nogutter surface-section text-800">
-                <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
-                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);" />
-                </div>
-                <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
-                    <section>
-                        <div class="text-6xl text-primary font-bold mb-3">
-                            Al based Spectra Prediction: from chemical structure to MS spectra
-                        </div>
-                        <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
-                            Another tool is just in the opposite way, from the given chemical structure to predict the MS spectra by Al, because million compounds from Metlin are in the training set.The consistency between Al-predicted spectra and experimental data provided substantial support to our analysis.
-                        </p>
-                        <router-link to="/cfmid" class="layout-topbar-logo">
-                            <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
-                        </router-link>
-                    </section>
-                </div>
-            </div>
-        </BlockViewer>
         <BlockViewer header="Data intelligent" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
@@ -57,6 +36,26 @@ import { ref } from 'vue';
                         <a href="http://52.131.247.115/metfrag" class="layout-topbar-logo" target="_blank">
                             <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
                         </a>
+                    </section>
+                </div>
+            </div>
+        </BlockViewer>
+        <BlockViewer header="Chem information" free>
+            <div class="grid grid-nogutter surface-section text-800">
+                <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
+                    <img src="/demo/images/blocks/hero/hero-1.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);" />
+                </div>
+                <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+                    <section>
+                        <div class="text-6xl text-primary font-bold mb-3">
+                            Al based Spectra Prediction: from chemical structure to MS spectra
+                        </div>
+                        <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
+                            Another tool is just in the opposite way, from the given chemical structure to predict the MS spectra by Al, because million compounds from Metlin are in the training set.The consistency between Al-predicted spectra and experimental data provided substantial support to our analysis.
+                        </p>
+                        <router-link to="/cfmid" class="layout-topbar-logo">
+                            <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
+                        </router-link>
                     </section>
                 </div>
             </div>
