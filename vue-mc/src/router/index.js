@@ -17,6 +17,16 @@ const router = createRouter({
                     path: '/cfmid',
                     name: 'cfmid',
                     component: () => import('@/views/pages/CFMID.vue')
+                },
+                {
+                    path: '/predictivemodel',
+                    name: 'predictivemodel',
+                    component: () => import('@/views/pages/predictivemodel.vue')
+                },
+                {
+                    path: '/machinelearning',
+                    name: 'machinelearning',
+                    component: () => import('@/views/pages/machinelearning.vue')
                 }
             ]
         }

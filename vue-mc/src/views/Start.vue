@@ -20,6 +20,46 @@ import { ref } from 'vue';
                 </div>
             </div>
         </BlockViewer>
+        <BlockViewer header="Predictive model" free>
+            <div class="grid grid-nogutter surface-section text-800">
+                <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
+                    <img src="/demo/images/blocks/hero/hero-3.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);" />
+                </div>
+                <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+                    <section>
+                        <div class="text-6xl text-primary font-bold mb-3">
+                            Predictive Modeling of Lactose in Fermented Milk
+                        </div>
+                        <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
+                            Maintaining appropriate lactose levels is critical for the texture, taste, and nutritional value of fermented milk products. The predictive model provides real-time quantification of lactose concentration, allowing for immediate adjustments during the fermentation process, thus enhancing consistency and reducing waste.
+                        </p>
+                        <router-link to="/predictivemodel" class="layout-topbar-logo">
+                            <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
+                        </router-link>
+                    </section>
+                </div>
+            </div>
+        </BlockViewer>
+        <BlockViewer header="Machine learning" free>
+            <div class="grid grid-nogutter surface-section text-800">
+                <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
+                    <img src="/demo/images/blocks/hero/hero-4.png" width="600" alt="Image" class="block md:h-full" style="clip-path: polygon(0% 0, 100% 0%, 100% 100%, 0 100%);" />
+                </div>
+                <div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
+                    <section>
+                        <div class="text-6xl text-primary font-bold mb-3">
+                            HRMS Data-Based Processing with Machine Learning
+                        </div>
+                        <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
+                            Leveraging advanced machine learning algorithms to process HRMS data, classify compounds, and provide accurate quantification. This approach enhances food safety and quality control by enabling the detailed nutritional analysis, ensuring compliance with health standards and consumer expectations.
+                        </p>
+                        <router-link to="/machinelearning" class="layout-topbar-logo">
+                            <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
+                        </router-link>
+                    </section>
+                </div>
+            </div>
+        </BlockViewer>
         <BlockViewer header="Data intelligent" free>
             <div class="grid grid-nogutter surface-section text-800">
                 <div class="col-12 md:col-6 overflow-hidden flex justify-content-center">
@@ -33,7 +73,7 @@ import { ref } from 'vue';
                         <p class="mt-0 mb-4 text-700 line-height-3 text-2xl">
                             Importantly, our HRMS technology is complemented by a robust database. Different supplier has different database. What we are doing is integrating the databases together, so it is gonna be a one-stop tool for searching and matching the spectra.
                         </p>
-                        <a href="http://52.131.247.115/metfrag" class="layout-topbar-logo" target="_blank">
+                        <a href="https://aptc.cc/metfrag" class="layout-topbar-logo" target="_blank">
                             <Button label="Learn More" type="button" class="mr-3 p-button-raised"></Button>
                         </a>
                     </section>
